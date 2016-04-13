@@ -28,7 +28,7 @@ app.get('/', function(request, response) {
 app.get('/users/:user', function(request, response){
   MongoClient.connect(mongoUrl, function(error, db){
     var usersCollection = db.collection('users');
-    if (err) {
+    if (error) {
       console.log('error connecting to db:', error);
     } else {
       console.log('searching database for user information');
