@@ -6,7 +6,7 @@ const SongComponent = React.createClass({
     return (
       <div className="songDiv">
         <button
-          onClick={this.props.consoleLog}
+          onClick={this.props.addSong}
           >Hello I'm a button</button>
       </div>
     );
