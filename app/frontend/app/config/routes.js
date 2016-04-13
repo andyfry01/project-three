@@ -1,14 +1,16 @@
 import React from 'react';
 import { Router, Route, IndexRoute, hashHistory} from 'react-router';
-import HeaderComponent from '../components/HeaderComponent';
+import Main from '../components/Main';
 import LandingPage from '../containers/LandingPage';
-import TopHitsComponent from '../components/TopHitsComponent'
+import SignedInPage from '../containers/SignedInPage';
+import PlaylistPage from '../containers/PlaylistPage';
 
 const routes = (
     <Router history={hashHistory}>
-    <Route Path='/' component={Main}>
+    <Route path='/' component={Main}>
     <IndexRoute component={LandingPage} />
-    <Route Path='LandingPage' component={LandingPage} />
+    <Route path='SignedInPage' component={SignedInPage} />
+    <Route path='PlaylistPage' component={PlaylistPage} />
     </Route>
     </Router>
 )

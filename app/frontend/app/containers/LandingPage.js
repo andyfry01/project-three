@@ -1,9 +1,14 @@
 import React from 'react';
+import TitleComponent from '../components/TitleComponent';
+import LoginComponent from '../components/LoginComponent';
 
 const LandingPage = React.createClass({
   render: function() {
     return (
-      <h1>hi did the link work?</h1>
+      <div>
+        <TitleComponent />
+        <LoginComponent />
+      </div>
     )
   }
 })
