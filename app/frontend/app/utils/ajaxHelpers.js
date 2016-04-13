@@ -13,7 +13,7 @@ const helpers = {
 
   //posting a new song
   postSong: function(song){
-    return axios.post('http://localhost:3000/projectThree/songs/new', song)
+    return axios.post('http://localhost:3000/songs/new', song)
   }
 }
 

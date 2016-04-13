@@ -6,8 +6,8 @@ const SongComponent = React.createClass({
     return (
       <div className="songDiv">
         <button
-          onClick={this.props.addSong}
-          >Hello I'm a button</button>
+          onClick={this.props.handleAddSong}
+          >This is a test button for adding songs to the DB</button>
       </div>
     );
   }

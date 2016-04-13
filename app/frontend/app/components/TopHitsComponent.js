@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import SongComponent from './SongComponent'
-import helpers from '../utils/helpers'
+import ajaxHelpers from '../utils/ajaxHelpers'
 
 const TopHitsComponent = React.createClass({
   addSong: function(){
@@ -15,21 +15,21 @@ const TopHitsComponent = React.createClass({
       song_url: this.state.song_url
     }
     console.log("this is what the song looks like", song);
-    postSong(song);
+    ajaxHelpers.postSong(song);
   },
   getInitialState: function(){
     return {
-      name: 'Trouble',
-      artist: 'T Swift',
+      name: 'All My Life',
+      artist: 'Foo Fighters',
       country: 'America',
-      rank: 1.0,
+      rank: 10.0,
       album_image: 'album.jpg',
       song_url: 'song.com'
     }
   },
   render: function() {
     return (
-      <SongComponent addSong={this.addSong}/>
+      <SongComponent handleAddSong={this.addSong}/>
     );
   }
 });
