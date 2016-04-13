@@ -13,8 +13,6 @@ var MongoClient = mongodb.MongoClient;
 
 //Mongo URL, collections
 var mongoUrl = 'mongodb://localhost:27017/projectThree';
-var usersCollection = db.collection('users');
-var songsCollection = db.collection('songs');
 
 //default get route
 app.get('/', function(request, response) {
@@ -29,6 +27,7 @@ app.get('/', function(request, response) {
 //    }
 app.get('/users/:user', function(request, response){
   MongoClient.connect(mongoUrl, function(error, db){
+    var usersCollection = db.collection('users');
     if (err) {
       console.log('error connecting to db:', error);
     } else {
@@ -58,6 +57,7 @@ app.get('/users/:user', function(request, response){
 app.post('/users/new', function(request,response){
   console.log('adding new user to the users database:', request.body);
   MongoClient.connect(mongoUrl, function(error, db){
+    var usersCollection = db.collection('users');
     if (error) {
       console.log("error connecting to database:", error);
     } else {
@@ -90,6 +90,7 @@ app.post('/users/new', function(request,response){
 app.post('/songs/new', function(request, response){
   console.log('adding new song to the songs database:', request.body);
   MongoClient.connect(mongoUrl, function(error, db){
+    var songsCollection = db.collection('songs');
     if (error) {
       console.log("error connecting to database:", error);
     } else {
@@ -97,11 +98,11 @@ app.post('/songs/new', function(request, response){
 
       //some tweaking probably required to build this object correctly
       var newSong = {
-        "name": request.body.name
-        "artist": request.body.artist
-        "country": request.body.country
-        "rank": request.body.rank
-        "albumImage": request.body.albumImage
+        "name": request.body.name,
+        "artist": request.body.artist,
+        "country": request.body.country,
+        "rank": request.body.rank,
+        "albumImage": request.body.albumImage,
         "songURL": request.body.songURL
       }
 
