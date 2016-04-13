@@ -65,7 +65,7 @@ app.post('/users/new', function(request,response){
 
       //some tweaking probably required to build this object correctly
       var newUser = {
-        'username': request.body.username,
+        'user': request.body.user,
         'password': request.body.password,
         'playlist': [],
         'loggedIn': false,
