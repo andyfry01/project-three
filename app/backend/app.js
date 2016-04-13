@@ -51,7 +51,8 @@ app.get('/users/:user', function(request, response){
       }) //end usersCollection.find()
     } //end else
   }) //end MongoClient connect
-}) // end get
+}) // end get user
+
 
 // route for adding a new user to the database
 app.post('/users/new', function(request,response){
@@ -82,8 +83,54 @@ app.post('/users/new', function(request,response){
       }) //end usersCollection.insert()
     } //end else
   }) //end MongoClient connect
-}) // end post
+}) // end post new user
 
+
+//route for posting new song to songs collection
+app.post('/songs/new', function(request, response){
+  console.log('adding new song to the songs database:', request.body);
+  MongoClient.connect(mongoUrl, function(error, db){
+    if (error) {
+      console.log("error connecting to database:", error);
+    } else {
+      console.log('Adding new song to database');
+
+      //some tweaking probably required to build this object correctly
+      var newSong = {
+        "name": request.body.name
+        "artist": request.body.artist
+        "country": request.body.country
+        "rank": request.body.rank
+        "albumImage": request.body.albumImage
+        "songURL": request.body.songURL
+      }
+
+      songsCollection.insert([newSong], function(error, result){
+        if (error) {
+          console.log('error adding new song:', error);
+        } else {
+          console.log('new song added', result);
+          response.json(result)
+        }
+        db.close(function(){
+          console.log('database closed');
+        }) //end db.close()
+      }) //end songsCollection.insert()
+    } //end else
+  }) //end MongoClient connect
+}) // end post new song
+
+
+//route for getting _id from song for adding into user playlist array
+app.get('...', function(request, response){
+
+})
+
+
+//route for posting the _id of a song into the playlist collection of a user
+app.post('...', function(request, response){
+
+})
 
 
 app.listen(3000, function() {
