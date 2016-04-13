@@ -16,6 +16,10 @@ const LoginComponent = React.createClass({
         <Link to="SignedInPage">
           <button type="button">Sign In</button>
         </Link>
+        <br />
+        <Link to="SignedInPage">
+          <button type="button">One Click Sign Up!</button>
+        </Link>
       </div>
     )
   }

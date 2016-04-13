@@ -1,4 +1,5 @@
 import React from 'react';
+import TitleComponent from './TitleComponent';
 import ButtonComponent from '../components/ButtonComponent';
 
 const HeaderComponent = React.createClass({
@@ -27,7 +28,6 @@ const HeaderComponent = React.createClass({
 
 
         </div>
-
       </div>
     );
   }
