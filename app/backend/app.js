@@ -67,7 +67,8 @@ app.post('/users/new', function(request,response){
       var newUser = {
         'username': request.body.username,
         'password': request.body.password,
-        'playlist': []
+        'playlist': [],
+        'loggedIn': false,
       }
 
       usersCollection.insert([newUser], function(error, result){
