@@ -5,9 +5,9 @@ const TopHitsComponent = React.createClass({
   render: function() {
     return (
       <div>
-      <h1> hi is it working </h1>
+      <h1> Top Hits from 'Country Name' need to make  </h1>
       <Link to='LandingPage'>
-        <h1>can u click on this?</h1>
+        <p>can u click on this?</p>
       </Link>
       </div>
     );

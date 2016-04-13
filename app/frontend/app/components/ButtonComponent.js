@@ -2,8 +2,16 @@ import React from 'react';
 
 const ButtonComponent = React.createClass({
   render: function() {
+
+    var pStyle = {
+      color: 'white',
+    }
     return (
-        <h1>dynamic buttons go here </h1>
+      <div>
+        <p style={pStyle}> View Playlist </p>
+      </div>
     );
   }
 });
+
+export default ButtonComponent;
