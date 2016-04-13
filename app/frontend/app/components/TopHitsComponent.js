@@ -1,15 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router';
+import SongComponent from './SongComponent'
 
 const TopHitsComponent = React.createClass({
+  doSomething: function(){
+    console.log("hi andy");
+  },
   render: function() {
     return (
-      <div>
-      <h1> Top Hits from 'Country Name' need to make  </h1>
-      <Link to='LandingPage'>
-        <p>can u click on this?</p>
-      </Link>
-      </div>
+      <SongComponent consoleLog={this.doSomething}/>
     );
   }
 });
