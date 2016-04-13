@@ -1,1 +1,11 @@
-{"_id":{"$oid":"570e4d58e42e60916cfdcbbb"},"name":"Trouble","artist":"T Swift","country":"America","rank":1.0,"album_image":"album.jpg","song_url":"song.com"}
+{
+  "_id": {
+    "$oid": "570e4d58e42e60916cfdcbbb"
+  },
+  "name": "Trouble",
+  "artist": "T Swift",
+  "country": "America",
+  "rank": 1.0,
+  "album_image": "album.jpg",
+  "song_url": "song.com"
+}
