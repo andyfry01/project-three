@@ -33,7 +33,7 @@ const LandingPage = React.createClass({
   },
 
   handleSubmitUser: function(e) {
-    e.preventDefault();
+    // e.preventDefault();
     this.setState({
       user: this.state.user,
       password: this.state.password

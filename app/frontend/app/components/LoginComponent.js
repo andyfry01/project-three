@@ -21,13 +21,13 @@ const LoginComponent = React.createClass({
         placeholder="Super Secure Password"
         onChange={this.props.onChangePassword}
         value={this.props.handleOnChangePassword} />
-      
+
         <Link to="SignedInPage">
           <button type="button">Sign In</button>
         </Link>
         <br />
         <Link to="SignedInPage">
-          <button type="button" onClick={this.props.onSubmit}>One Click Sign Up!</button>
+          <button onClick={this.props.onSubmit}>One Click Sign Up!</button>
         </Link>
       </div>
     )
