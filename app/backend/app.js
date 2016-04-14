@@ -123,6 +123,32 @@ app.post('/songs/new', function(request, response){
 }) // end post new song
 
 
+//route for finding which user is logged in.
+app.get('/loggedin', function(request, response){
+  MongoClient.connect(mongoUrl, function(error, db){
+    var usersCollection = db.collection('users');
+    if (error){
+      console.log('error connecting to db:', error);
+    } else {
+      console.log('searching database for logged in user');
+      usersCollection.find({loggedIn:true}).toArray(function (error, result){
+        if (error) {
+          console.log('error finding logged in user', error);
+        } else if (result.length) {
+          console.log("logged in user found:", result);
+          response.json(result)
+        } else {
+          console.log("no users currently logged in");
+        }
+        db.close(function(){
+          console.log("database closed");
+        }) //end db.close()
+      }) //end usersCollection.find()
+    }// end else
+  }) //end MongoClient.connect()
+}) //end find logged in user
+
+
 //route for getting _id from song for adding into user playlist array
 app.get('...', function(request, response){
 

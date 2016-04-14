@@ -1,5 +1,5 @@
 import axios from 'axios';
-import API_KEY from '../API_KEY';
+import API_KEY from './API_KEY';
 
 const helpers = {
   //finding user
@@ -21,6 +21,11 @@ const helpers = {
   findCountrySongs: function(countryName){
     return axios.get('http://ws.audioscrobbler.com/2.0/?format=json&method=geo.gettoptracks&country=' + countryName + '&api_key=' + API_KEY);
   },
+
+  //searching for logged-in user
+  findLoggedInUser: function(){
+    return axios.get('...some path...')
+  }
 
 }
 
