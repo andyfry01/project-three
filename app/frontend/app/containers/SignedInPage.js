@@ -24,9 +24,11 @@ const SignedInPage = React.createClass({
 
   findCountrySongsAjaxCall: function(){
     console.log('finding country:', this.state.countryName);
-    const country = {
-      countryName: this.state.countryName,
-    };
+    let country = this.state.countryName;
+    ajaxHelpers.findCountrySongs(country)
+    .then(function(response){
+      console.log(response);
+    })
 
   },
 
