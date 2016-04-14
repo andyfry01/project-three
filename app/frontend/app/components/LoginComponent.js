@@ -8,17 +8,20 @@ const LoginComponent = React.createClass({
     return (
       <div>
         <h3> Log in or create an account!</h3>
+
         <input
         type="text"
         placeholder="Username"
         onKeyUp={this.props.onChangeUser}
         value={this.props.handleOnChangeUser} />
         <br /> <br />
+
         <input
         type="text"
         placeholder="Super Secure Password"
         onChange={this.props.onChangePassword}
         value={this.props.handleOnChangePassword} />
+      
         <Link to="SignedInPage">
           <button type="button">Sign In</button>
         </Link>

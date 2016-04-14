@@ -47,9 +47,9 @@ const LandingPage = React.createClass({
     };
     console.log('the user looks like this', user);
      ajaxHelpers.addUser(user)
-    //  .then(function(response) {
-    //    console.log("u added something!!!! here u go:", response);
-    //  }.bind(this))
+     .then(function(response) {
+       console.log("u added something!!!! here u go:", response);
+     }.bind(this))
   },
 
   render: function() {
