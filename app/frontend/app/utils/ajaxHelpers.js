@@ -9,12 +9,12 @@ const helpers = {
 
   //adding user
   addUser: function(user){
-    return axios.post('http://localhost:3000/users/new', user)
+    return axios.post('http://localhost:3000/users/new', user);
   },
 
   //posting a new song
   postSong: function(song){
-    return axios.post('http://localhost:3000/songs/new', song)
+    return axios.post('http://localhost:3000/songs/new', song);
   },
 
   //request to lastFM
