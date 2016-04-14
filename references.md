@@ -1,0 +1,1 @@
+- Finding the last document in a Mongo collection: http://stackoverflow.com/questions/10920651/get-the-latest-record-from-mongodb-collection

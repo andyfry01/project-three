@@ -136,7 +136,8 @@ app.get('/loggedin', function(request, response){
           console.log('error finding logged in user', error);
         } else if (result.length) {
           console.log("logged in user found:", result);
-          response.json(result)
+          console.log(result[0]['_id']);
+          response.json(result[0]['_id'])
         } else {
           console.log("no users currently logged in");
         }
@@ -149,11 +150,31 @@ app.get('/loggedin', function(request, response){
 }) //end find logged in user
 
 
-//route for getting _id from song for adding into user playlist array
-app.get('...', function(request, response){
-
-})
-
+//route for getting _id from last song added to songs collection for adding into user playlist array
+app.get('/lastsong', function(request, response){
+  MongoClient.connect(mongoUrl, function(error, db){
+    var songsCollection = db.collection('songs');
+    if (error){
+      console.log('error connecting to db:', error);
+    } else {
+      console.log('searching database for most recently added song');
+      songsCollection.find().limit(1).sort({$natural:-1}).toArray(function (error, result){
+        if (error) {
+          console.log('error finding most recent song', error);
+        } else if (result.length) {
+          console.log("most recently added song found", result);
+          console.log(result['_id']);
+          response.json(result['_id'])
+        } else {
+          console.log("no songs in DB");
+        }
+        db.close(function(){
+          console.log("database closed");
+        }) //end db.close()
+      }) //end songsCollection.find()
+    }// end else
+  }) //end MongoClient.connect()})
+}) //end finding most recently added song
 
 //route for posting the _id of a song into the playlist collection of a user
 app.post('...', function(request, response){
