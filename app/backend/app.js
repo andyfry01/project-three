@@ -10,6 +10,8 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 var MongoClient = mongodb.MongoClient;
+var ObjectId = require('mongodb').ObjectID
+
 
 //Mongo URL, collections
 var mongoUrl = 'mongodb://localhost:27017/projectThree';
@@ -163,8 +165,8 @@ app.get('/lastsong', function(request, response){
           console.log('error finding most recent song', error);
         } else if (result.length) {
           console.log("most recently added song found", result);
-          console.log(result['_id']);
-          response.json(result['_id'])
+          console.log("id number for most recently added song", result[0]['_id']);
+          response.json(result[0]['_id'])
         } else {
           console.log("no songs in DB");
         }
@@ -179,7 +181,32 @@ app.get('/lastsong', function(request, response){
 //route for posting the _id of a song into the playlist collection of a user
 app.post('/addSong', function(request, response){
   console.log('logging the object passed to add song');
-  console.log(request.body);
+
+  var userID = ObjectId(request.body.loggedInUser.data);
+  var songID = ObjectId(request.body.lastSong.data);
+
+
+  MongoClient.connect(mongoUrl, function(error, db){
+    var usersCollection = db.collection('users')
+    if (error) {
+      console.log('error connecting to db.users', error);
+    } else {
+      console.log('looking for user');
+      usersCollection.find({'_id': userID}).toArray(function (error, result) {
+        if (error) {
+          console.log('error finding user based on user ID', error);
+        } else if (result.length) {
+          console.log("user found!", result);
+          usersCollection.update({'_id': userID}, {$push: {'playlist': songID}})
+        } else {
+          console.log('no users found');
+        }
+        db.close(function(){
+          console.log('database closed');
+        })
+      })
+    }
+  })
 })
 
 
