@@ -15,7 +15,7 @@ const TopHitsComponent = React.createClass({
       song_url: this.state.song_url
     }
     console.log("this is what the song looks like", song);
-    ajaxHelpers.postSong(song);
+    ajaxHelpers.addSongToPlaylist();
   },
   getInitialState: function(){
     return {

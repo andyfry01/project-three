@@ -177,8 +177,9 @@ app.get('/lastsong', function(request, response){
 }) //end finding most recently added song
 
 //route for posting the _id of a song into the playlist collection of a user
-app.post('...', function(request, response){
-
+app.post('/addSong', function(request, response){
+  console.log('logging the object passed to add song');
+  console.log(request.body);
 })
 
 
