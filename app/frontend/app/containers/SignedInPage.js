@@ -19,7 +19,6 @@ const SignedInPage = React.createClass({
     this.setState({
       countryName: e.target.value
     });
-    console.log(this.state.countryName);
   },
 
   findCountrySongsAjaxCall: function(){
@@ -27,9 +26,22 @@ const SignedInPage = React.createClass({
     let country = this.state.countryName;
     ajaxHelpers.findCountrySongs(country)
     .then(function(response){
-      console.log(response);
-    })
+      console.log(response.data.tracks);
+      this.setState({
+        ajaxReturn: response.data.tracks
+      });
+    }.bind(this));
+  },
 
+  getCountrySongs: function(){
+    console.log('getting songs');
+    if (this.state.ajaxReturn.track) {
+      return(
+        <TopHitsComponent
+          songs={this.state.ajaxReturn}
+          />
+      )
+    }
   },
 
   render: function() {
@@ -37,7 +49,7 @@ const SignedInPage = React.createClass({
       <div>
         <HeaderComponent />
         <MapComponent countryInput={this.countryInput} onSubmit={this.findCountrySongsAjaxCall} />
-        <TopHitsComponent songs={this.state.ajaxReturn} />
+        {this.getCountrySongs()}
       </div>
     );
   }

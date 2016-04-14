@@ -5,13 +5,14 @@ import ButtonComponent from '../components/ButtonComponent';
 const HeaderComponent = React.createClass({
   render: function() {
 
-    var headerStyle = {
+    let headerStyle = {
       backgroundColor: 'black',
       color: 'white',
       lineHeight: '50px',
+      margin: '0'
     };
 
-    var pStyle = {
+    let pStyle = {
       margin: '20px',
     }
 

@@ -4,6 +4,7 @@ import SongComponent from './SongComponent'
 import ajaxHelpers from '../utils/ajaxHelpers'
 
 const TopHitsComponent = React.createClass({
+
   addSong: function(){
     console.log("hi andy, adding song");
     let song = {
@@ -17,6 +18,7 @@ const TopHitsComponent = React.createClass({
     console.log("this is what the song looks like", song);
     ajaxHelpers.postSong(song);
   },
+
   getInitialState: function(){
     return {
       name: 'All My Life',
@@ -27,9 +29,12 @@ const TopHitsComponent = React.createClass({
       song_url: 'song.com'
     }
   },
-  render: function() {
+
+
+
+  render: function(){
     return (
-      <SongComponent handleAddSong={this.addSong}/>
+      <SongComponent songs={this.props.children} handleAddSong={this.addSong}/>
     );
   }
 });
