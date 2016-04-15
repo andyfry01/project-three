@@ -9,23 +9,13 @@ const SongComponent = React.createClass({
 
         <div className="songInfo">
           <h3>Songs</h3>
-            <ul>
-              {
-                this.props.songs.map( (song, index) => {
-                  return
-                    <li key={index}>
-                      {song},
-                    </li>;
-                })
-              }
-            </ul>
-
+          <p> Song: {this.props.name}</p>
+          <p> Artist: {this.props.artist}</p>
+          <p> Rank: {this.props.rank}</p>
         </div>
         <br/>
         <br/>
-        <button
-          onClick={this.props.handleAddSong}
-        > This is a test button for adding songs to the DB</button>
+        <button>test button</button>
 
       </div>
     );

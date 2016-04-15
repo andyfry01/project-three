@@ -5,6 +5,18 @@ import ajaxHelpers from '../utils/ajaxHelpers'
 
 const TopHitsComponent = React.createClass({
 
+  getInitialState: function(){
+    return {
+      name: 'All My Life',
+      artist: 'Foo Fighters',
+      country: 'America',
+      rank: 10.0,
+      album_image: 'album.jpg',
+      song_url: 'song.com',
+      lastFM: '',
+    }
+  },
+
   addSong: function(){
     console.log("hi andy, adding song");
     let song = {
@@ -19,23 +31,23 @@ const TopHitsComponent = React.createClass({
     ajaxHelpers.postSong(song);
   },
 
-  getInitialState: function(){
-    return {
-      name: 'All My Life',
-      artist: 'Foo Fighters',
-      country: 'America',
-      rank: 10.0,
-      album_image: 'album.jpg',
-      song_url: 'song.com'
-    }
-  },
-
-
-
   render: function(){
+    console.log(this.props.songs);
+    var stuff = this.props.songs.track.map(function(obj){
+      return (
+        <SongComponent
+          name={obj.name}
+          artist={obj.artist.name}
+          rank={obj['@attr'].rank}
+
+          songs={obj.lastFM}
+        />
+      )
+
+    });
     return (
-      <SongComponent songs={this.props.children} handleAddSong={this.addSong}/>
-    );
+      <div>{stuff}</div>
+    )
   }
 });
 
