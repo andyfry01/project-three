@@ -57,16 +57,17 @@ app.get('/playlist', function(request, response){
       console.log('error connecting to db:', error);
     } else {
       console.log('searching database for current playlist');
+      
       usersCollection.find({loggedIn:true}).toArray(function (error, result){
         if (error){
           console.log('error finding playlist', error);
         } else if (result.length){
           console.log('current playlist:', result[0].playlist);
-          // response.json(result[0].playlist);
 
           var songsArr = result[0].playlist;
           var songsCollection = db.collection('songs');
           var obj_ids = songsArr.map(function (item){ return ObjectId(item)}); //help from http://stackoverflow.com/questions/29560961/query-mongodb-for-multiple-objectids-in-array
+
           songsCollection.find({'_id': {'$in': obj_ids}})
           .toArray(function(error, result){
             if (error){

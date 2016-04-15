@@ -36,8 +36,8 @@ const TopHitsComponent = React.createClass({
           />
         </div>
       )
-
     });
+
     return (
       <div>
         {song}

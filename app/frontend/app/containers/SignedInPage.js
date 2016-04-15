@@ -7,6 +7,7 @@ import ajaxHelpers from '../utils/ajaxHelpers';
 let styles = require('../css/styles.css');
 
 const SignedInPage = React.createClass({
+  
   componentDidMount: function() {
     console.log("hi signedInPage has loaded");
   },
@@ -15,7 +16,7 @@ const SignedInPage = React.createClass({
     return {
       ajaxReturn: [],
       countryName: '',
-    };
+    }
   },
 
   countryInput: function(e){
@@ -35,7 +36,7 @@ const SignedInPage = React.createClass({
   },
 
   getCountrySongs: function(){
-    if (this.state.ajaxReturn.track) {
+    if (this.state.ajaxReturn.track){
       return (
         <div className='topHitsStyles'>
           <TopHitsComponent
