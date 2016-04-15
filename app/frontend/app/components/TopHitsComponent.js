@@ -8,12 +8,6 @@ let styles = require('../css/styles.css');
 
 const TopHitsComponent = React.createClass({
 
-  getInitialState: function(){
-    return {
-    }
-  },
-
-
   render: function(){
     console.log(this.props.songs);
 
@@ -34,6 +28,9 @@ const TopHitsComponent = React.createClass({
             name={obj.name}
             artist={obj.artist.name}
             rank={obj['@attr'].rank}
+            country={obj['@attr'].country}
+            album_image={obj.image[3]['#text']}
+            song_url={obj.url}
 
             songs={obj.lastFM}
           />

@@ -8,10 +8,10 @@ const SongComponent = React.createClass({
     let song = {
       name: this.props.name,
       artist: this.props.artist,
-      country: 'test country',
+      country: this.props.country,
       rank: this.props.rank,
-      album_image: 'test albumimg',
-      song_url: 'test url'
+      album_image: this.props.album_image,
+      song_url: this.props.song_url
     }
     ajaxHelpers.addSongToPlaylist(song)
   },

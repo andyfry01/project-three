@@ -105,8 +105,8 @@ app.post('/songs/new', function(request, response){
         "artist": request.body.artist,
         "country": request.body.country,
         "rank": request.body.rank,
-        "albumImage": request.body.albumImage,
-        "songURL": request.body.songURL
+        "albumImage": request.body.album_image,
+        "songURL": request.body.song_url
       }
 
       songsCollection.insert([newSong], function(error, result){
