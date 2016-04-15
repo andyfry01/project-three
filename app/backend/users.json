@@ -1,18 +1,19 @@
-db.users.insert({
+{
+  "_id": ObjectId("570e5d558ee41800b1ba61ac"),
   "user": "carrie",
   "password": "hi",
-  "playlist": [ObjectId("571100c81c04966e247d90f1"), ObjectId("571100c91c04966e247d90f2"],
+  "playlist": [ObjectId("570fe28085a9af7f0d8ac12b"), ObjectId("570fe28085a9af7f0d8ac12b")],
   "loggedIn": false
-})
-db.users.insert({
+} {
+  "_id": ObjectId("570e5d758ee41800b1ba61ad"),
   "user": "andy",
   "password": "password",
-  "playlist": [ObjectId("571100c81c04966e247d90f1"), ObjectId("571100c91c04966e247d90f2"],
-  "loggedIn": false
-})
-db.users.insert({
+  "playlist": [ObjectId("570fe28085a9af7f0d8ac12b"), ObjectId("570fe28085a9af7f0d8ac12b")],
+  "loggedIn": false;
+} {
+  "_id": ObjectId("570f9d64bea0b33d8c942e19"),
   "user": "tyler",
   "password": "hi-password",
-  "playlist": [ObjectId("571100c81c04966e247d90f1"), ObjectId("571100c91c04966e247d90f2"],
+  "playlist": ["test", ObjectId("570fe28085a9af7f0d8ac12b"), ObjectId("570fe28085a9af7f0d8ac12b")],
   "loggedIn": true
-})
+}

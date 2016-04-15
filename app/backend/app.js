@@ -62,25 +62,24 @@ app.get('/playlist', function(request, response){
           console.log('error finding playlist', error);
         } else if (result.length){
           console.log('current playlist:', result[0].playlist);
-          response.json(result[0].playlist);
+          // response.json(result[0].playlist);
 
           var songsArr = result[0].playlist;
           var songsCollection = db.collection('songs');
-          var testObj = ObjectId('571100c91c04966e247d90f2');
-          var testObj2 = ObjectId('571100c91c04966e247d90f2');
+          var testObj = ObjectId('57114dc4b55715e29431806c');
+          var testObj2 = ObjectId('57114d8db55715e29431806b');
 
-          songsCollection.find(
-            {_id:{$in:
-              [testObj,
-              testObj2]
-            }}
-          ).toArray(function(error, result){
+          var obj_ids = songsArr.map(function (item){ return ObjectId(item)}); //solution from http://stackoverflow.com/questions/29560961/query-mongodb-for-multiple-objectids-in-array
+          songsCollection.find({'_id': {'$in': obj_ids}})
+          .toArray(function(error, result){
             if (error){
               console.log('error using $in', error);
             } else {
               console.log('result', result);
+              response.json(result);
             }
           })
+
 
 
         } else {
@@ -101,7 +100,9 @@ app.get('/playlist', function(request, response){
 //      'username': <username>
 //      'password': <password>
 //    }
-app.get('/users/:user', function(request, response){
+app.post('/users/find', function(request, response){
+  console.log('hey, it looks like youre trying to find a user');
+  console.log('this is the request.body', request.body);
   MongoClient.connect(mongoUrl, function(error, db){
     var usersCollection = db.collection('users');
     if (error) {
@@ -109,7 +110,7 @@ app.get('/users/:user', function(request, response){
     } else {
       console.log('searching database for user information');
       // I'm going to have to experiment with this next line to actually find the user based on the username/pass fields
-      usersCollection.find(request.params).toArray(function (error, result) {
+      usersCollection.find({$and:[{user: request.body.user}, {password: request.body.password}]}).toArray(function (error, result) {
         if (error) {
           console.log("error", error);
           response.json("error")
@@ -179,8 +180,8 @@ app.post('/songs/new', function(request, response){
         "artist": request.body.artist,
         "country": request.body.country,
         "rank": request.body.rank,
-        "albumImage": request.body.albumImage,
-        "songURL": request.body.songURL
+        "albumImage": request.body.album_image,
+        "songURL": request.body.song_url
       }
 
       songsCollection.insert([newSong], function(error, result){

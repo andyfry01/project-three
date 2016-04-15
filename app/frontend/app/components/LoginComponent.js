@@ -32,11 +32,11 @@ const LoginComponent = React.createClass({
         <div className='loginBtns'>
 
           <Link to="SignedInPage">
-            <button type="button">Sign In</button>
+            <button onClick={this.props.findUser}>Sign In</button>
           </Link>
 
           <Link to="SignedInPage">
-            <button onClick={this.props.onSubmit}>One-Click Sign Up</button>
+            <button onClick={this.props.addUser}>One-Click Sign Up</button>
           </Link>
 
         </div>

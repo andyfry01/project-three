@@ -8,32 +8,6 @@ let styles = require('../css/styles.css');
 
 const TopHitsComponent = React.createClass({
 
-  getInitialState: function(){
-    return {
-      name: 'All My Life',
-      artist: 'Foo Fighters',
-      country: 'America',
-      rank: 10.0,
-      album_image: 'album.jpg',
-      song_url: 'song.com',
-      lastFM: '',
-    }
-  },
-
-  addSong: function(){
-    console.log("hi andy, adding song");
-    let song = {
-      name: this.state.name,
-      artist: this.state.artist,
-      country: this.state.country,
-      rank: this.state.rank,
-      album_image: this.state.album_image,
-      song_url: this.state.song_url
-    }
-    console.log("this is what the song looks like", song);
-    ajaxHelpers.addSongToPlaylist();
-  },
-
   render: function(){
     console.log(this.props.songs);
 
@@ -54,6 +28,9 @@ const TopHitsComponent = React.createClass({
             name={obj.name}
             artist={obj.artist.name}
             rank={obj['@attr'].rank}
+            country={obj['@attr'].country}
+            album_image={obj.image[3]['#text']}
+            song_url={obj.url}
 
             songs={obj.lastFM}
           />
@@ -63,7 +40,6 @@ const TopHitsComponent = React.createClass({
     });
     return (
       <div>
-        <button onClick={this.addSong}>Test button</button>
         {song}
       </div>
     )
