@@ -22,6 +22,13 @@ const helpers = {
     return axios.get('http://ws.audioscrobbler.com/2.0/?format=json&method=geo.gettoptracks&country=' + countryName + '&api_key=' + API_KEY);
   },
 
+  //find loggedIn user
+  findLoggedInUser: function(){
+    console.log('in ajaxHelpers, finding user');
+    return axios.get('http://localhost:3000/loggedin')
+  },
+
+
   //add song to user playlist
   addSongToPlaylist: function(){
     //loggedInUser = _id of logged in user
@@ -50,10 +57,7 @@ const helpers = {
     })
     //finds logged in user, adds song to playlist array
     delayAddSong();
-
-
   }
 
 }
-
 export default helpers;

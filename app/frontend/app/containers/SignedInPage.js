@@ -25,11 +25,9 @@ const SignedInPage = React.createClass({
   },
 
   findCountrySongsAjaxCall: function(){
-    console.log('finding country:', this.state.countryName);
     let country = this.state.countryName;
     ajaxHelpers.findCountrySongs(country)
     .then(function(response){
-      console.log(response.data.tracks);
       this.setState({
         ajaxReturn: response.data.tracks
       });
@@ -37,8 +35,6 @@ const SignedInPage = React.createClass({
   },
 
   getCountrySongs: function(){
-    console.log('getting songs on signedinpage');
-
     if (this.state.ajaxReturn.track) {
       return (
         <div className='topHitsStyles'>
@@ -51,7 +47,6 @@ const SignedInPage = React.createClass({
   },
 
   render: function() {
-    console.log("SignedInPage pageValue isssss:", this.state.pageValue);
     return (
       <div>
         <HeaderComponent buttonText={"View Playlist"} link={"PlaylistPage"}/>

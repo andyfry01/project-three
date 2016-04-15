@@ -1,8 +1,23 @@
 import React from 'react';
 import SongComponent from './SongComponent';
+import ajaxHelpers from '../utils/ajaxHelpers';
 
 const PlaylistComponent = React.createClass({
-  render: function() {
+
+  componentDidMount: function(){
+    console.log('playlist component mounted');
+    console.log('props', this.props);
+
+    ajaxHelpers.findLoggedInUser()
+    .then(function(response){
+      console.log('finding user in ajax call');
+      console.log('this is the user', response.data)
+    })
+
+  },
+
+  render: function(){
+
     return (
       <div>
         <h3>song info displayed below</h3>

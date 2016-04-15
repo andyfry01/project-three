@@ -14,7 +14,7 @@ const SongComponent = React.createClass({
           <p> Artist: {this.props.artist}</p>
           <p> Rank: {this.props.rank}</p>
         </div>
-        <button className="addSongBtn">Add to Playlist</button>
+        <button className="addSongBtn">Save</button>
         <br/>
         <br/>
       </div>

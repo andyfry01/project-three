@@ -31,7 +31,7 @@ const TopHitsComponent = React.createClass({
       song_url: this.state.song_url
     }
     console.log("this is what the song looks like", song);
-    ajaxHelpers.postSong(song);
+    ajaxHelpers.addSongToPlaylist();
   },
 
   render: function(){
@@ -63,6 +63,7 @@ const TopHitsComponent = React.createClass({
     });
     return (
       <div>
+        <button onClick={this.addSong}>Test button</button>
         {song}
       </div>
     )

@@ -14,7 +14,7 @@ const PlaylistPage = React.createClass({
   render: function() {
     return (
       <div>
-        <HeaderComponent buttonText={"go back to main"} link={"signedInPage"} />
+        <HeaderComponent buttonText={"Back to Map"} link={"signedInPage"} />
         <h1> hi im playlist page</h1>
         <PlaylistComponent />
       </div>
