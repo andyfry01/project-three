@@ -10,8 +10,13 @@ const PlaylistComponent = React.createClass({
 
     ajaxHelpers.findLoggedInUser()
     .then(function(response){
-      console.log('finding user in ajax call');
-      console.log('this is the user', response.data)
+      console.log('You Are User #' + response.data)
+      console.log('response', response);
+    })
+
+    ajaxHelpers.getAllUsers()
+    .then(function(response){
+      console.log('in find user, response:', response)
     })
 
   },

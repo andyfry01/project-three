@@ -17,9 +17,36 @@ var ObjectId = require('mongodb').ObjectID
 var mongoUrl = 'mongodb://localhost:27017/projectThree';
 
 //default get route
-app.get('/', function(request, response) {
+app.get('/', function(request, response){
   response.json({"message": "welcome to the database!"})
 });
+
+// route for displaying all users in the database
+app.get('/users', function(request, response){
+  MongoClient.connect(mongoUrl, function(error, db){
+    var usersCollection = db.collection('users');
+    if (error){
+      console.log('error connecting to db:', error);
+    } else {
+      console.log('searching database for all users');
+      usersCollection.find(request.params).toArray(function(error, result){
+        if (error){
+          console.log('error', error);
+          response.json(error);
+        } else if (result.length){
+          console.log('users:', result);
+          response.json(result);
+        } else {
+          console.log('users db is empty');
+          response.json('users db is empty');
+        }
+        db.close(function(){
+          console.log('database closed');
+        }) // end db.close()
+      }) // end usersCollection.find()
+    } // end else
+  }) // end MongoClient connect
+}) // end get()
 
 // route for finding a user in the database when login is clicked.
 // the object that gets sent to this path should look as follows:

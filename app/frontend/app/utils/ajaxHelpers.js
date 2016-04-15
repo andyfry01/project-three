@@ -24,8 +24,12 @@ const helpers = {
 
   //find loggedIn user
   findLoggedInUser: function(){
-    console.log('in ajaxHelpers, finding user');
-    return axios.get('http://localhost:3000/loggedin')
+    return axios.get('http://localhost:3000/loggedin');
+  },
+
+  //get loggedIn user's object
+  getAllUsers: function(){
+    return axios.get('http://localhost:3000/users');
   },
 
 
