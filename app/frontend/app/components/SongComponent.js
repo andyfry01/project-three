@@ -8,7 +8,6 @@ const SongComponent = React.createClass({
       <div className="songDiv">
 
         <div className="songInfo">
-          <h3>Songs</h3>
           <p> Song: {this.props.name}</p>
           <p> Artist: {this.props.artist}</p>
           <p> Rank: {this.props.rank}</p>

@@ -33,7 +33,7 @@ const TopHitsComponent = React.createClass({
 
   render: function(){
     console.log(this.props.songs);
-    var stuff = this.props.songs.track.map(function(obj){
+    var song = this.props.songs.track.map(function(obj){
       return (
         <SongComponent
           name={obj.name}
@@ -46,7 +46,9 @@ const TopHitsComponent = React.createClass({
 
     });
     return (
-      <div>{stuff}</div>
+      <div>
+        {song}
+      </div>
     )
   }
 });
