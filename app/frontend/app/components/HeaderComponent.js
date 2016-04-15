@@ -8,14 +8,13 @@ const HeaderComponent = React.createClass({
 
     let headerStyle = {
       backgroundColor: 'black',
-      color: 'white',
+      color: '#fff',
       lineHeight: '50px',
-      margin: '0'
+      padding: '20px',
+      display: 'flex',
+      justifyContent: 'space-between',
+      fontSize: '30px',
     };
-
-    let pStyle = {
-      margin: '20px',
-    }
 
     return (
       <div className="main-container">

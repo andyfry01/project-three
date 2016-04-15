@@ -1,0 +1,32 @@
+body {
+  background-color: #ccc;
+}
+
+input {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 0px;
+  outline: 0px;
+  padding: 10px;
+}
+
+button {
+  background-color: #5b0142;
+  border-radius: 5px;
+  border: 0px;
+  color: #fff;
+  padding: 10px;
+}
+button:hover {
+  background-color: #75015c;
+}
+
+.loginBtns {
+  display: flex;
+  justify-content: space-around;
+}
+
+.titleComp {
+  text-align: center;
+  background-color: red;
+}

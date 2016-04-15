@@ -3,10 +3,14 @@ import PlaylistComponent from '../components/PlaylistComponent'
 import HeaderComponent from '../components/HeaderComponent';
 import {Link} from 'react-router';
 
+let styles = require('../css/styles.css');
+
 const PlaylistPage = React.createClass({
+
   componentDidMount: function() {
-      console.log("hi playlistPage has loaded");
+    console.log("hi playlistPage has loaded");
   },
+
   render: function() {
     return (
       <div>

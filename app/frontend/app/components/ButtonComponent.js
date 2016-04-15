@@ -2,12 +2,14 @@ import React from 'react';
 import {Link} from 'react-router';
 
 const ButtonComponent = React.createClass({
-
   render: function() {
     console.log("props for ButtonComponent are:", this.props);
-    var pStyle = {
-      color: 'white',
-    }
+
+    let pStyle = {
+      fontSize: '15px',
+      color: '#fff',
+    };
+
     return (
       <div>
         <Link to={this.props.link}>

@@ -7,9 +7,20 @@ const MapComponent = React.createClass({
   },
 
   render: function(){
+
+    let divStyle = {
+      border: '1px solid red',
+      width: '90%',
+      margin: 'auto',
+      position: 'relative',
+      display: 'block',
+      top: '20px',
+      textAlign: 'center',
+      fontSize: '20px',
+    };
+
     return (
-      <div className='mapBox'>
-        <p>This is where the Map or Input Field goes</p>
+      <div style={divStyle}>
 
         <input placeholder='enter a country' onChange={this.countryName}/>
         <button onClick={this.props.onSubmit}>Go!</button>

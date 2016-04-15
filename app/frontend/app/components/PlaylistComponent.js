@@ -5,7 +5,7 @@ const PlaylistComponent = React.createClass({
   render: function() {
     return (
       <div>
-        <h1>hi this is where song_info gets displayed</h1>
+        <h3>song info displayed below</h3>
         <SongComponent />
       </div>
     );

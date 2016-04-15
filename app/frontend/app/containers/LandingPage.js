@@ -4,6 +4,8 @@ import TitleComponent from '../components/TitleComponent';
 import LoginComponent from '../components/LoginComponent';
 import ajaxHelpers from '../utils/ajaxHelpers';
 
+let styles = require('../css/landingStyles.css');
+
 const LandingPage = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
@@ -33,7 +35,6 @@ const LandingPage = React.createClass({
   },
 
   handleSubmitUser: function(e) {
-    // e.preventDefault();
     this.setState({
       user: this.state.user,
       password: this.state.password
@@ -53,9 +54,27 @@ const LandingPage = React.createClass({
   },
 
   render: function() {
+
+    let divStyle = {
+      border: '1px solid #ddd',
+      width: '40%',
+      height: '100%',
+      margin: 'auto',
+      borderRadius: '5px',
+      backgroundColor: 'rgba(255,255,255,.5)',
+      padding: '20px',
+      textAlign: 'center',
+      position: 'relative',
+      top: '30px',
+    };
+
+    let titleStyle = {
+      textAlign: 'center',
+    }
+
     return (
-      <div>
-        <TitleComponent />
+      <div style={divStyle}>
+        <TitleComponent className='titleComp' />
         <LoginComponent
           onChangeUser={this.handleOnChangeUser}
           onChangePassword={this.handleOnChangePassword}

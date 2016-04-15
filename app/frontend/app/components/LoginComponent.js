@@ -3,8 +3,10 @@ import {Link} from 'react-router';
 
 
 const LoginComponent = React.createClass({
+
   render: function() {
     console.log("props for login are:", this.props);
+
     return (
       <div>
         <h3> Log in or create an account!</h3>
@@ -14,7 +16,9 @@ const LoginComponent = React.createClass({
         placeholder="Username"
         onKeyUp={this.props.onChangeUser}
         value={this.props.handleOnChangeUser} />
-        <br /> <br />
+
+        <br/>
+        <br/>
 
         <input
         type="password"
@@ -22,13 +26,21 @@ const LoginComponent = React.createClass({
         onChange={this.props.onChangePassword}
         value={this.props.handleOnChangePassword} />
 
-        <Link to="SignedInPage">
-          <button type="button">Sign In</button>
-        </Link>
-        <br />
-        <Link to="SignedInPage">
-          <button onClick={this.props.onSubmit}>One Click Sign Up!</button>
-        </Link>
+        <br/>
+        <br/>
+
+        <div className='loginBtns'>
+
+          <Link to="SignedInPage">
+            <button type="button">Sign In</button>
+          </Link>
+
+          <Link to="SignedInPage">
+            <button onClick={this.props.onSubmit}>One Click Sign Up</button>
+          </Link>
+
+        </div>
+
       </div>
     )
   }

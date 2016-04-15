@@ -4,6 +4,8 @@ import MapComponent from '../components/MapComponent';
 import TopHitsComponent from '../components/TopHitsComponent';
 import ajaxHelpers from '../utils/ajaxHelpers';
 
+let styles = require('../css/styles.css');
+
 const SignedInPage = React.createClass({
   componentDidMount: function() {
     console.log("hi signedInPage has loaded");
