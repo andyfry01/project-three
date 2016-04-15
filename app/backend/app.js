@@ -69,7 +69,7 @@ app.get('/playlist', function(request, response){
           var testObj = ObjectId('57114dc4b55715e29431806c');
           var testObj2 = ObjectId('57114d8db55715e29431806b');
 
-          var obj_ids = songsArr.map(function (item){ return ObjectId(item)}); //solution from http://stackoverflow.com/questions/29560961/query-mongodb-for-multiple-objectids-in-array
+          var obj_ids = songsArr.map(function (item){ return ObjectId(item)}); //help from http://stackoverflow.com/questions/29560961/query-mongodb-for-multiple-objectids-in-array
           songsCollection.find({'_id': {'$in': obj_ids}})
           .toArray(function(error, result){
             if (error){
