@@ -33,8 +33,8 @@ const helpers = {
     return axios.get('http://localhost:3000/loggedin');
   },
 
-  //find current user object
-  findCurrentUserData: function(){
+  //find current user's playlist
+  findCurrentPlaylist: function(){
     return axios.get('http://localhost:3000/playlist');
   },
 

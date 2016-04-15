@@ -49,31 +49,32 @@ app.get('/users', function(request, response){
 }) // end get()
 
 
-// route for finding current users playlist
+// route for finding current user's playlist
 app.get('/playlist', function(request, response){
   MongoClient.connect(mongoUrl, function(error, db){
     var usersCollection = db.collection('users');
     if (error){
       console.log('error connecting to db:', error);
     } else {
-      console.log('searching database for logged in user');
+      console.log('searching database for current playlist');
       usersCollection.find({loggedIn:true}).toArray(function (error, result){
-        if (error) {
-          console.log('error finding logged in user', error);
-        } else if (result.length) {
-          console.log("logged in user found:", result);
-          console.log(result);
-          response.json(result)
+        if (error){
+          console.log('error finding playlist', error);
+        } else if (result.length){
+          console.log('current playlist:', result[0].playlist);
+          response.json(result[0].playlist);
         } else {
-          console.log("no users currently logged in");
+          console.log('no plalist available');
         }
         db.close(function(){
           console.log("database closed");
-        })
-      })
-    }
-  })
-})
+        }) // end db.close()
+      }) // end usersCollection.find()
+    } // end else
+  }) // end MongoClient connect()
+}) // end get()
+
+// route for getting songs from current playlist
 
 
 // route for finding a user in the database when login is clicked.

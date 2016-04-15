@@ -8,9 +8,9 @@ const PlaylistComponent = React.createClass({
     console.log('playlist component mounted');
     console.log('props', this.props);
 
-    ajaxHelpers.findCurrentUserData()
+    ajaxHelpers.findCurrentPlaylist()
     .then(function(response){
-      console.log('response', response.data[0].playlist)
+      console.log(response.data)
     })
 
   },
