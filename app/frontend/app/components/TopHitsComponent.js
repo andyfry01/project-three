@@ -9,7 +9,7 @@ let styles = require('../css/styles.css');
 const TopHitsComponent = React.createClass({
 
   render: function(){
-    console.log(this.props.songs);
+    console.log(this.props.songs.track);
 
     let songCompStyle = {
       margin: '30px',
