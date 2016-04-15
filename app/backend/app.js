@@ -37,7 +37,7 @@ app.post('/users/find', function(request, response){
     } else {
       console.log('searching database for user information');
       // I'm going to have to experiment with this next line to actually find the user based on the username/pass fields
-      usersCollection.find({'user': request.body.user}, {'password': request.body.password}).toArray(function (error, result) {
+      usersCollection.find({$and:[{user: request.body.user}, {password: request.body.password}]}).toArray(function (error, result) {
         if (error) {
           console.log("error", error);
           response.json("error")
