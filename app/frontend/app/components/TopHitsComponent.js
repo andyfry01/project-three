@@ -10,29 +10,9 @@ const TopHitsComponent = React.createClass({
 
   getInitialState: function(){
     return {
-      name: 'All My Life',
-      artist: 'Foo Fighters',
-      country: 'America',
-      rank: 10.0,
-      album_image: 'album.jpg',
-      song_url: 'song.com',
-      lastFM: '',
     }
   },
 
-  addSong: function(){
-    console.log("hi andy, adding song");
-    let song = {
-      name: this.state.name,
-      artist: this.state.artist,
-      country: this.state.country,
-      rank: this.state.rank,
-      album_image: this.state.album_image,
-      song_url: this.state.song_url
-    }
-    console.log("this is what the song looks like", song);
-    ajaxHelpers.postSong(song);
-  },
 
   render: function(){
     console.log(this.props.songs);
