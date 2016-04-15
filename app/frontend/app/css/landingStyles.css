@@ -24,6 +24,8 @@ button {
 }
 button:hover {
   background-color: #5b0142;
+  cursor: crosshair;
+
 }
 
 .loginBtnsCont {
