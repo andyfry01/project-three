@@ -17,7 +17,7 @@ const LoginComponent = React.createClass({
         <br /> <br />
 
         <input
-        type="text"
+        type="password"
         placeholder="Super Secure Password"
         onChange={this.props.onChangePassword}
         value={this.props.handleOnChangePassword} />

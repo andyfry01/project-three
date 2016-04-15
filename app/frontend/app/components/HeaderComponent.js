@@ -1,6 +1,7 @@
 import React from 'react';
 import TitleComponent from './TitleComponent';
 import ButtonComponent from '../components/ButtonComponent';
+import {Link} from 'react-router';
 
 const HeaderComponent = React.createClass({
   render: function() {
@@ -18,16 +19,12 @@ const HeaderComponent = React.createClass({
 
     return (
       <div className="main-container">
-        {this.props.children}
-
         <div style={headerStyle}>
           <p>
             App Name
           </p>
 
-          <ButtonComponent/>
-
-
+          <ButtonComponent buttonText={this.props.buttonText} link={this.props.link}/>
         </div>
       </div>
     );
