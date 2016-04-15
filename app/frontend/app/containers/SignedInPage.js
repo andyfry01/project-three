@@ -4,9 +4,10 @@ import MapComponent from '../components/MapComponent';
 import TopHitsComponent from '../components/TopHitsComponent';
 import ajaxHelpers from '../utils/ajaxHelpers';
 
-
-
 const SignedInPage = React.createClass({
+  componentDidMount: function() {
+    console.log("hi signedInPage has loaded");
+  },
 
   getInitialState: function(){
     return {
@@ -29,13 +30,13 @@ const SignedInPage = React.createClass({
     .then(function(response){
       console.log(response);
     })
-
   },
 
   render: function() {
+    console.log("SignedInPage pageValue isssss:", this.state.pageValue);
     return (
       <div>
-        <HeaderComponent />
+        <HeaderComponent buttonText={"View Playlist"} link={"PlaylistPage"}/>
         <MapComponent countryInput={this.countryInput} onSubmit={this.findCountrySongsAjaxCall} />
         <TopHitsComponent songs={this.state.ajaxReturn} />
       </div>

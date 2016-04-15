@@ -1,9 +1,9 @@
 import axios from 'axios';
-import API_KEY from '../API_KEY';
+import API_KEY from './API_KEY';
 
 const helpers = {
   //finding user
-  findUser: function(){
+  findUser: function(user){
     return axios.get('http://localhost:3000/users', user.name);
   },
 

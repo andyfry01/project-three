@@ -55,9 +55,6 @@ const LandingPage = React.createClass({
   render: function() {
     return (
       <div>
-        <Link to='PlaylistPage'>
-          <h1>hi click to see playlist stuff</h1>
-        </Link>
         <TitleComponent />
         <LoginComponent
           onChangeUser={this.handleOnChangeUser}
