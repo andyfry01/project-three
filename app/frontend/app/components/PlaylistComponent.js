@@ -8,15 +8,9 @@ const PlaylistComponent = React.createClass({
     console.log('playlist component mounted');
     console.log('props', this.props);
 
-    ajaxHelpers.findLoggedInUser()
+    ajaxHelpers.findCurrentUserData()
     .then(function(response){
-      console.log('You Are User #' + response.data)
-      console.log('response', response);
-    })
-
-    ajaxHelpers.getAllUsers()
-    .then(function(response){
-      console.log('in find user, response:', response)
+      console.log('response', response.data[0].playlist)
     })
 
   },

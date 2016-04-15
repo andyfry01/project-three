@@ -48,6 +48,34 @@ app.get('/users', function(request, response){
   }) // end MongoClient connect
 }) // end get()
 
+
+// route for finding current users playlist
+app.get('/playlist', function(request, response){
+  MongoClient.connect(mongoUrl, function(error, db){
+    var usersCollection = db.collection('users');
+    if (error){
+      console.log('error connecting to db:', error);
+    } else {
+      console.log('searching database for logged in user');
+      usersCollection.find({loggedIn:true}).toArray(function (error, result){
+        if (error) {
+          console.log('error finding logged in user', error);
+        } else if (result.length) {
+          console.log("logged in user found:", result);
+          console.log(result);
+          response.json(result)
+        } else {
+          console.log("no users currently logged in");
+        }
+        db.close(function(){
+          console.log("database closed");
+        })
+      })
+    }
+  })
+})
+
+
 // route for finding a user in the database when login is clicked.
 // the object that gets sent to this path should look as follows:
 //    {
