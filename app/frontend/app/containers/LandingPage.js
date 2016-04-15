@@ -34,6 +34,22 @@ const LandingPage = React.createClass({
     console.log("target.value for password is:", e.target.value);
   },
 
+  handleFindUser: function(e){
+    this.setState({
+      user: this.state.user,
+      password: this.state.password
+    });
+    let user = {
+      user: this.state.user,
+      password: this.state.password,
+      playlist: [],
+      loggedIn: true
+    };
+    console.log('finding user');
+    console.log('the user looks like this', user);
+     ajaxHelpers.findUser(user)
+  },
+
   handleSubmitUser: function(e) {
     this.setState({
       user: this.state.user,
@@ -48,9 +64,6 @@ const LandingPage = React.createClass({
     };
     console.log('the user looks like this', user);
      ajaxHelpers.addUser(user)
-     .then(function(response) {
-       console.log("u added something!!!! here u go:", response);
-     }.bind(this))
   },
 
   render: function() {
@@ -75,7 +88,8 @@ const LandingPage = React.createClass({
           <LoginComponent
             onChangeUser={this.handleOnChangeUser}
             onChangePassword={this.handleOnChangePassword}
-            onSubmit={this.handleSubmitUser}
+            addUser={this.handleSubmitUser}
+            findUser={this.handleFindUser}
             />
         </div>
       </div>

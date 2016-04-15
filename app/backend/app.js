@@ -27,7 +27,9 @@ app.get('/', function(request, response) {
 //      'username': <username>
 //      'password': <password>
 //    }
-app.get('/users/:user', function(request, response){
+app.post('/users/find', function(request, response){
+  console.log('hey, it looks like youre trying to find a user');
+  console.log('this is the request.body', request.body);
   MongoClient.connect(mongoUrl, function(error, db){
     var usersCollection = db.collection('users');
     if (error) {
@@ -35,7 +37,7 @@ app.get('/users/:user', function(request, response){
     } else {
       console.log('searching database for user information');
       // I'm going to have to experiment with this next line to actually find the user based on the username/pass fields
-      usersCollection.find(request.params).toArray(function (error, result) {
+      usersCollection.find({'user': request.body.user}, {'password': request.body.password}).toArray(function (error, result) {
         if (error) {
           console.log("error", error);
           response.json("error")

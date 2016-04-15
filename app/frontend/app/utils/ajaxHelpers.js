@@ -4,7 +4,7 @@ import API_KEY from './API_KEY';
 const helpers = {
   //finding user
   findUser: function(user){
-    return axios.get('http://localhost:3000/users', user.name);
+    return axios.post('http://localhost:3000/users/find', user);
   },
 
   //adding user
