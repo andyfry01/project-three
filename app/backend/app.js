@@ -63,18 +63,36 @@ app.get('/playlist', function(request, response){
         } else if (result.length){
           console.log('current playlist:', result[0].playlist);
           response.json(result[0].playlist);
+
+          var songsArr = result[0].playlist;
+          var songsCollection = db.collection('songs');
+          var testObj = ObjectId('571100c91c04966e247d90f2');
+          var testObj2 = ObjectId('571100c91c04966e247d90f2');
+
+          songsCollection.find(
+            {_id:{$in:
+              [testObj,
+              testObj2]
+            }}
+          ).toArray(function(error, result){
+            if (error){
+              console.log('error using $in', error);
+            } else {
+              console.log('result', result);
+            }
+          })
+
+
         } else {
-          console.log('no plalist available');
+          console.log('no playlist available');
         }
-        db.close(function(){
-          console.log("database closed");
-        }) // end db.close()
+        // db.close(function(){
+        //   console.log("database closed");
+        // }) // end db.close()
       }) // end usersCollection.find()
     } // end else
   }) // end MongoClient connect()
 }) // end get()
-
-// route for getting songs from current playlist
 
 
 // route for finding a user in the database when login is clicked.

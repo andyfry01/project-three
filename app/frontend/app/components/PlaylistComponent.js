@@ -10,7 +10,7 @@ const PlaylistComponent = React.createClass({
 
     ajaxHelpers.findCurrentPlaylist()
     .then(function(response){
-      console.log(response.data)
+      console.log(response.data);
     })
 
   },
