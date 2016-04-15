@@ -1,4 +1,6 @@
 import React from 'react';
+let styles = require('../css/landingStyles.css');
+
 
 const SongComponent = React.createClass({
 
@@ -8,11 +10,11 @@ const SongComponent = React.createClass({
       <div className="songDiv">
 
         <div className="songInfo">
-          <p> Song: {this.props.name}</p>
+          <p> Track: {this.props.name}</p>
           <p> Artist: {this.props.artist}</p>
           <p> Rank: {this.props.rank}</p>
         </div>
-        <button>Add Song to Playlist</button>
+        <button className="addSongBtn">Add to Playlist</button>
         <br/>
         <br/>
       </div>

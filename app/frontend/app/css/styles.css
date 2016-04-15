@@ -11,3 +11,13 @@
 a {
   text-decoration: none;
 }
+
+.addSongBtn {
+  font-size: 20px;
+}
+
+.topHitsStyles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

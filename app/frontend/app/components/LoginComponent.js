@@ -36,7 +36,7 @@ const LoginComponent = React.createClass({
           </Link>
 
           <Link to="SignedInPage">
-            <button onClick={this.props.onSubmit}>One Click Sign Up</button>
+            <button onClick={this.props.onSubmit}>One-Click Sign Up</button>
           </Link>
 
         </div>

@@ -56,30 +56,28 @@ const LandingPage = React.createClass({
   render: function() {
 
     let divStyle = {
+      backgroundColor: 'rgba(255,255,255,.5)',
       border: '1px solid #ddd',
-      width: '40%',
-      height: '100%',
+      minWidth: '40%',
+      padding: '20px',
       margin: 'auto',
       borderRadius: '5px',
-      backgroundColor: 'rgba(255,255,255,.5)',
-      padding: '20px',
       textAlign: 'center',
       position: 'relative',
-      top: '30px',
+      top: '40px',
     };
 
-    let titleStyle = {
-      textAlign: 'center',
-    }
 
     return (
-      <div style={divStyle}>
-        <TitleComponent className='titleComp' />
-        <LoginComponent
-          onChangeUser={this.handleOnChangeUser}
-          onChangePassword={this.handleOnChangePassword}
-          onSubmit={this.handleSubmitUser}
-          />
+      <div className='formComp'>
+        <div style={divStyle}>
+          <TitleComponent className='titleComp' />
+          <LoginComponent
+            onChangeUser={this.handleOnChangeUser}
+            onChangePassword={this.handleOnChangePassword}
+            onSubmit={this.handleSubmitUser}
+            />
+        </div>
       </div>
     )
   }

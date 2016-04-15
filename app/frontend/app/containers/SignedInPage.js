@@ -38,11 +38,14 @@ const SignedInPage = React.createClass({
 
   getCountrySongs: function(){
     console.log('getting songs on signedinpage');
+
     if (this.state.ajaxReturn.track) {
       return (
-        <TopHitsComponent
-          songs={this.state.ajaxReturn}
+        <div className='topHitsStyles'>
+          <TopHitsComponent
+            songs={this.state.ajaxReturn}
           />
+        </div>
       );
     }
   },

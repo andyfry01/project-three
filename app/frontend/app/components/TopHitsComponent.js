@@ -3,6 +3,9 @@ import {Link} from 'react-router';
 import SongComponent from './SongComponent'
 import ajaxHelpers from '../utils/ajaxHelpers'
 
+let styles = require('../css/styles.css');
+
+
 const TopHitsComponent = React.createClass({
 
   getInitialState: function(){
@@ -33,15 +36,28 @@ const TopHitsComponent = React.createClass({
 
   render: function(){
     console.log(this.props.songs);
+
+    let songCompStyle = {
+      margin: '30px',
+      padding: '30px',
+      borderRadius: '10px',
+      backgroundColor: '#fff',
+      display: 'inline-flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    };
+
     let song = this.props.songs.track.map(function(obj){
       return (
-        <SongComponent
-          name={obj.name}
-          artist={obj.artist.name}
-          rank={obj['@attr'].rank}
+        <div style={songCompStyle} className='songComp'>
+          <SongComponent
+            name={obj.name}
+            artist={obj.artist.name}
+            rank={obj['@attr'].rank}
 
-          songs={obj.lastFM}
-        />
+            songs={obj.lastFM}
+          />
+        </div>
       )
 
     });

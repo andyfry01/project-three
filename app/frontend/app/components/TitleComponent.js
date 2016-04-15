@@ -16,7 +16,7 @@ const TitleComponent = React.createClass({
     }
 
     return (
-      <div>
+      <div className='titleComp'>
         <h1 style={logoStyle}>APP</h1>
       </div>
     )
