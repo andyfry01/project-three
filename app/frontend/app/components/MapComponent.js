@@ -8,11 +8,13 @@ const MapComponent = React.createClass({
 
   render: function(){
     return (
-      <div>
+      <div className='mapBox'>
         <p>This is where the Map or Input Field goes</p>
 
         <input placeholder='enter a country' onChange={this.countryName}/>
         <button onClick={this.props.onSubmit}>Go!</button>
+        <br/>
+        <br/>
       </div>
     );
   }
