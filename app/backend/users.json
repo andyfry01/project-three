@@ -1,3 +1,18 @@
-{"_id":{"$oid":"570e4c2fe42e60916cfdcbba"},"user":"tyler","password":"hiImPassword","playlist":[]}
-{"_id":{"$oid":"570e4da9e42e60916cfdcbbc"},"user":"andy","password":"password","playlist":["570e4d58e42e60916cfdcbbb"]}
-{"_id":{"$oid":"570e4ead5e32d1d20fe352da"},"user":"carrie","password":"hi","playlist":[{"$oid":"570e4d58e42e60916cfdcbbb"}]}
+db.users.insert({
+  "user": "carrie",
+  "password": "hi",
+  "playlist": [ObjectId("571100c81c04966e247d90f1"), ObjectId("571100c91c04966e247d90f2"],
+  "loggedIn": false
+})
+db.users.insert({
+  "user": "andy",
+  "password": "password",
+  "playlist": [ObjectId("571100c81c04966e247d90f1"), ObjectId("571100c91c04966e247d90f2"],
+  "loggedIn": false
+})
+db.users.insert({
+  "user": "tyler",
+  "password": "hi-password",
+  "playlist": [ObjectId("571100c81c04966e247d90f1"), ObjectId("571100c91c04966e247d90f2"],
+  "loggedIn": true
+})
