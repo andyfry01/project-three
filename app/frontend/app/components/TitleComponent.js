@@ -4,7 +4,7 @@ const TitleComponent = React.createClass({
   render: function(){
 
     let logoStyle = {
-      backgroundColor: '#999',
+      backgroundColor: '#590046',
       color: 'white',
       borderRadius: '50%',
       width: '120px',
@@ -16,11 +16,11 @@ const TitleComponent = React.createClass({
     }
 
     return (
-      <div className='titleComp'>
+      <div className='landingFlex'>
         <h1 style={logoStyle}>APP</h1>
       </div>
-    )
+    );
   }
-})
+});
 
 export default TitleComponent;

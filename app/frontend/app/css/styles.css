@@ -10,7 +10,7 @@
 
 a {
   text-decoration: none;
-  cursor: crosshair;
+  cursor: cell;
 }
 
 .addSongBtn {
@@ -23,10 +23,6 @@ a {
   align-items: center;
   background-color: red;
   width: 100%;
-}
-
-.test {
-  display: flex;
 }
 
 .flexResults {

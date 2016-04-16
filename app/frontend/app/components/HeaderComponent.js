@@ -18,7 +18,7 @@ const HeaderComponent = React.createClass({
     };
 
     return (
-      <div className="main-container">
+      <div>
         <div style={headerStyle}>
           <p>
             App Name
@@ -26,7 +26,9 @@ const HeaderComponent = React.createClass({
 
           <ButtonComponent
             buttonText={this.props.buttonText}
-            link={this.props.link}/>
+            link={this.props.link}
+          />
+
         </div>
       </div>
     );

@@ -8,7 +8,7 @@ const PlaylistComponent = React.createClass({
 
     let playlist = this.props.playlist.data.map(function(obj){
       return (
-        <div key={obj._id} className='test'>
+        <div key={obj._id}>
           <SongComponent
             name={obj.name}
             artist={obj.artist}
@@ -21,7 +21,7 @@ const PlaylistComponent = React.createClass({
     });
 
     return (
-      <div>
+      <div className='flexResults'>
         {playlist}
       </div>
     );

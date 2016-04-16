@@ -17,26 +17,30 @@ const SongComponent = React.createClass({
 
   render: function() {
     let songCompStyle = {
-      margin: '10px',
+      margin: '20px',
       padding: '30px',
       borderRadius: '10px',
       backgroundColor: '#fff',
       justifyContent: 'center',
       alignItems: 'center',
-      width: '350px',
-      height: '350px',
+      width: '370px',
+      height: '370px',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      alignItems: 'stretch',
     };
 
     return (
-      <div style={songCompStyle} className="songDiv">
+      <div style={songCompStyle}>
 
         <div className="songInfo">
           <p> Track: {this.props.name}</p>
           <p> Artist: {this.props.artist}</p>
           <p> Rank: {this.props.rank}</p>
 
-          <button onClick={this.addSong} className="addSongBtn">Add to Playlist</button>
         </div>
+        <button onClick={this.addSong} className="addSongBtn">Add to Playlist</button>
 
       </div>
     );

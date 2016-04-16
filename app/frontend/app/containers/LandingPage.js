@@ -3,8 +3,7 @@ import {Link} from 'react-router';
 import TitleComponent from '../components/TitleComponent';
 import LoginComponent from '../components/LoginComponent';
 import ajaxHelpers from '../utils/ajaxHelpers';
-
-let styles = require('../css/landingStyles.css');
+let    styles = require('../css/landingStyles.css');
 
 const LandingPage = React.createClass({
   contextTypes: {
@@ -81,9 +80,9 @@ const LandingPage = React.createClass({
     };
 
     return (
-      <div className='formComp'>
+      <div className='landingFlex'>
         <div style={divStyle}>
-          <TitleComponent className='titleComp' />
+          <TitleComponent/>
           <LoginComponent
             onChangeUser={this.handleOnChangeUser}
             onChangePassword={this.handleOnChangePassword}
@@ -92,8 +91,8 @@ const LandingPage = React.createClass({
             />
         </div>
       </div>
-    )
+    );
   }
-})
+});
 
 export default LandingPage;

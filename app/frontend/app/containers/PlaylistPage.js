@@ -37,7 +37,7 @@ const PlaylistPage = React.createClass({
 
   render: function() {
 
-      let divStyle = {
+      let h1Style = {
         margin: '30px',
       }
 
@@ -45,8 +45,8 @@ const PlaylistPage = React.createClass({
       <div>
         <HeaderComponent buttonText={"Back to Map"} link={"signedInPage"} />
 
-        <div style={divStyle}>
-          <h1> hi im playlist page</h1>
+        <div>
+          <h1 style={h1Style}> hi im playlist page</h1>
             <div>
               {this.getPlaylist()}
             </div>

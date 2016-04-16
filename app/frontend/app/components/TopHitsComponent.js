@@ -1,10 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import SongComponent from './SongComponent'
-import ajaxHelpers from '../utils/ajaxHelpers'
-
-let styles = require('../css/styles.css');
-
+let    styles = require('../css/styles.css');
 
 const TopHitsComponent = React.createClass({
 
@@ -12,7 +9,7 @@ const TopHitsComponent = React.createClass({
     console.log(this.props.songs.track)
     let song = this.props.songs.track.map(function(obj){
       return (
-        <div key={obj['@attr'].rank} className='songComp'>
+        <div key={obj['@attr'].rank}>
           <SongComponent
             name={obj.name}
             artist={obj.artist.name}
@@ -23,14 +20,14 @@ const TopHitsComponent = React.createClass({
             songs={obj.lastFM}
           />
         </div>
-      )
+      );
     });
 
     return (
       <div className='flexResults'>
         {song}
       </div>
-    )
+    );
   }
 });
 

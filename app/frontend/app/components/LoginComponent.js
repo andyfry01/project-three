@@ -1,15 +1,21 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-
 const LoginComponent = React.createClass({
 
   render: function() {
     console.log("props for login are:", this.props);
 
+    let h3Style = {
+      fontSize: '25px',
+      color: '#333',
+      margin: '10px',
+      fontWeight: '600',
+    };
+
     return (
       <div>
-        <h3> Log in or create an account!</h3>
+        <h3 style={h3Style}> Log in or create an account!</h3>
 
         <input
         type="text"
