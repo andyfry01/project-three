@@ -8,7 +8,7 @@ const LoginComponent = React.createClass({
 
     let h3Style = {
       fontSize: '25px',
-      color: 'rgba(168, 168, 168, .7)',
+      color: 'rgba(168, 168, 168, .9)',
       margin: '10px',
       fontWeight: '600',
     };

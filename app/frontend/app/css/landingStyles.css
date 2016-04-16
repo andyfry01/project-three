@@ -2,7 +2,7 @@ input {
   background-color: rgba(0,0,0,.2);
   color: rgba(168, 168, 168,1);
   border-radius: 5px;
-  border: 1px solid rgba(25, 44, 85, 0);
+  border: 1px solid rgba(255, 255, 255, .1);
   margin: 5px 0px;
   outline: 0px;
   padding: 10px;
@@ -18,10 +18,10 @@ input {
    color: rgba(255,255,255,.2);
 }
 input:focus {
-  background-color: rgba(142, 38, 113,.2);
-  box-shadow: 0 0 5px rgba(16, 28, 56, .3);
+  background-color: rgba(142, 38, 113,.4);
+  box-shadow: 0 0 5px rgba(168, 168, 168, .4);
   margin: 5px 0px;
-  border: 1px solid rgba(16, 28, 56, .3);
+  border: 1px solid rgba(168, 168, 168, .4);
 }
 
 button {

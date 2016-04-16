@@ -69,7 +69,7 @@ const LandingPage = React.createClass({
 
     let loginBoxStyle = {
       backgroundColor: 'rgba(0,0,0,.2)',
-      border: '1px solid rgba(0,0,0,.4)',
+      border: '1px solid rgba(255,255,255,.3)',
       minWidth: '40%',
       padding: '20px',
       margin: 'auto',
