@@ -3,7 +3,18 @@ import ajaxHelpers from '../utils/ajaxHelpers'
 
 const SongComponent = React.createClass({
 
+  getInitialState: function(){
+    return {
+      btnValue: '',
+    }
+  },
+
   addSong: function(){
+
+    this.setState({
+      btnValue: 'Saved!',
+    });
+
     let song = {
       name: this.props.name,
       artist: this.props.artist,
@@ -16,6 +27,7 @@ const SongComponent = React.createClass({
   },
 
   getSongs: function(){
+    // console.log('songs', this.props);
 
     let songCompStyle = {
       formatDiv: {
@@ -52,7 +64,13 @@ const SongComponent = React.createClass({
         </div>
 
         <div>
-          <button style={songCompStyle.formatBtn} onClick={this.addSong} className="addSongBtn">Add to Playlist</button>
+          <button
+            style={songCompStyle.formatBtn}
+            onClick={this.addSong}
+            className="addSongBtn"
+            savedTxt={this.state.btnValue}
+          > {this.state.btnValue}
+          </button>
         </div>
 
       </div>
