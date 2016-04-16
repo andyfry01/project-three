@@ -57,7 +57,7 @@ app.get('/playlist', function(request, response){
       console.log('error connecting to db:', error);
     } else {
       console.log('searching database for current playlist');
-      
+
       usersCollection.find({loggedIn:true}).toArray(function (error, result){
         if (error){
           console.log('error finding playlist', error);
@@ -108,9 +108,18 @@ app.post('/users/find', function(request, response){
           response.json("error")
         } else if (result.length) {
           console.log('user found:', result);
-          response.json(result)
-          usersCollection.update({}, {$set: {loggedIn: false}}, {multi: true})
-          
+          response.json(result);
+          // usersCollection.updateMany({user: {$ne: result[0]['user']}}, {$set: {loggedIn: false}}, {multi: true});
+              usersCollection.update({user: request.body.user}, {$set: {loggedIn: true}});
+              console.log("hi is the code reaching this point");
+            // if (usersCollection.find({user: result[0].user}, {loggedIn: false})) {
+            //   usersCollection.update({user: result[0].user}, {$set: {loggedIn: true}});
+            //   console.log("request username looks like:", request.body.user);
+            //   console.log("request password looks like:", request.body.password);
+            //   console.log("request user's logged in status is:", request.body.loggedIn);
+            //   console.log("result username looks like:", result[0].user);
+            //   console.log("result logged in status looks like:", result[0].loggedIn);
+            // }
         } else {
           console.log('no users found in database with that username/password');
           response.json('no users found in database with that username/password')
