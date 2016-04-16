@@ -170,13 +170,13 @@ app.post('/songs/new', function(request, response){
                     var songID = ObjectId(result[0]['_id'])
                     usersCollection.update({'_id': userID}, {$push: {'playlist': songID}})
                 }
+                db.close(function(){
+                  console.log('database closed');
+                }) //end db.close()
               })
             }
           })
         }
-        db.close(function(){
-          console.log('database closed');
-        }) //end db.close()
       }) //end songsCollection.insert()
     } //end else
   }) //end MongoClient connect
