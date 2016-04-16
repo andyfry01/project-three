@@ -28,6 +28,10 @@ a {
 
 .addSongBtn {
   font-size: 20px;
+  width: 100%;
+}
+button.addSongBtn:hover {
+  color: red;
 }
 
 .flexStyle {
@@ -45,9 +49,4 @@ a {
 
 .btnStyle {
   width: 100%;
-}
-
-img {
-  width: 100%;
-  height: 100%;
 }

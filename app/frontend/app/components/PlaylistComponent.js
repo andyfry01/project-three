@@ -4,7 +4,6 @@ import SongComponent from './SongComponent';
 const PlaylistComponent = React.createClass({
 
   render: function(){
-    console.log('passing props to playlist comp', this.props.playlist.data);
 
     let playlist = this.props.playlist.data.map(function(obj){
       return (

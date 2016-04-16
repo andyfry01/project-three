@@ -2,14 +2,26 @@ input {
   background-color: rgba(0,0,0,.2);
   color: rgba(168, 168, 168,1);
   border-radius: 5px;
-  border: 0px;
+  border: 1px solid rgba(25, 44, 85, 0);
+  margin: 5px 0px;
   outline: 0px;
   padding: 10px;
   margin: 5px 0;
   width: 95%;
+
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
 }
 ::-webkit-input-placeholder {
-   color: rgba(255,255,255,.5);
+   color: rgba(255,255,255,.2);
+}
+input:focus {
+  background-color: rgba(142, 38, 113,.2);
+  box-shadow: 0 0 5px rgba(16, 28, 56, .3);
+  margin: 5px 0px;
+  border: 1px solid rgba(16, 28, 56, .3);
 }
 
 button {
@@ -24,6 +36,11 @@ button {
 button:hover {
   background-color: #8e2671;
   cursor: cell;
+
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
 }
 
 .loginBtnsCont {

@@ -15,34 +15,53 @@ const SongComponent = React.createClass({
     ajaxHelpers.addSongToPlaylist(song)
   },
 
-  render: function() {
+  getSongs: function(){
+
     let songCompStyle = {
-      backgroundColor: 'rgba(255,255,255,.1)',
-      color: 'rgba(168, 168, 168,.8)',
-      borderRadius: '5px',
-      margin: '20px',
-      padding: '30px',
-      width: '370px',
-      height: '370px',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-between',
-      alignItems: 'stretch',
+      formatDiv: {
+        backgroundColor: 'rgba(255,255,255,.1)',
+        color: 'rgba(255,255,255,.8)',
+        textShadow: '2px 2px #000',
+        borderRadius: '5px',
+        margin: '20px',
+        padding: '30px',
+        width: '370px',
+        height: '370px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        alignItems: 'stretch',
+        backgroundImage: 'url(' + this.props.album_image + ')',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+      },
+      formatBtn: {
+        backgroundColor: 'rgba(142, 38, 113,.9)',
+        border: '1px solid rgba(142, 38, 113,1)',
+        color: 'rgba(255, 255, 255, 1)',
+      },
     };
 
     return (
-      <div style={songCompStyle}>
+      <div style={songCompStyle.formatDiv} className='songInfo'>
 
-          <div className='songInfo'>
-            <p> Track: {this.props.name}</p>
-            <p> Artist: {this.props.artist}</p>
-            <p> Rank: {this.props.rank}</p>
-          </div>
+        <div>
+          <p> Track: {this.props.name}</p>
+          <p> Artist: {this.props.artist}</p>
+        </div>
 
-          <div>
-            <button onClick={this.addSong} className="addSongBtn">Add to Playlist</button>
-          </div>
+        <div>
+          <button style={songCompStyle.formatBtn} onClick={this.addSong} className="addSongBtn">Add to Playlist</button>
+        </div>
 
+      </div>
+    )
+  },
+
+  render: function() {
+    return (
+      <div>
+        {this.getSongs()}
       </div>
     );
   }
