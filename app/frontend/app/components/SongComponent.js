@@ -5,15 +5,19 @@ const SongComponent = React.createClass({
 
   getInitialState: function(){
     return {
-      btnValue: '',
+      btnValue: this.props.btnValue,
+      route: '', //use for future delete button
     }
   },
 
   addSong: function(){
 
-    this.setState({
-      btnValue: 'Saved!',
-    });
+    if(this.state.btnValue === 'Save to Playlist'){
+      console.log('checking the state');
+      this.setState({
+        btnValue: 'Saved!',
+      });
+    }
 
     let song = {
       name: this.props.name,
@@ -68,7 +72,6 @@ const SongComponent = React.createClass({
             style={songCompStyle.formatBtn}
             onClick={this.addSong}
             className="addSongBtn"
-            savedTxt={this.state.btnValue}
           > {this.state.btnValue}
           </button>
         </div>
