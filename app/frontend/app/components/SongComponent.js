@@ -48,6 +48,7 @@ const SongComponent = React.createClass({
         <div>
           <p> Track: {this.props.name}</p>
           <p> Artist: {this.props.artist}</p>
+          <p> Rank: {this.props.rank}</p>
         </div>
 
         <div>
