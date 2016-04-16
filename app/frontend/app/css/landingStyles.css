@@ -1,10 +1,6 @@
-body {
-  background-color: #ccc;
-  color: #444;
-}
-
 input {
-  background-color: #fff;
+  background-color: rgba(0,0,0,.2);
+  color: rgba(168, 168, 168,1);
   border-radius: 5px;
   border: 0px;
   outline: 0px;
@@ -12,18 +8,21 @@ input {
   margin: 5px 0;
   width: 95%;
 }
+::-webkit-input-placeholder {
+   color: rgba(255,255,255,.5);
+}
 
 button {
-  background-color: #75015c;
+  background-color: rgba(117, 1, 92, .5);
   border-radius: 5px;
   border: 0px;
   outline: 0px;
-  color: #fff;
+  color: rgba(168, 168, 168,.9);
   padding: 15px;
   margin: 5px;
 }
 button:hover {
-  background-color: #5b0142;
+  background-color: #8e2671;
   cursor: cell;
 }
 
@@ -37,4 +36,9 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.loginBoxPosition {
+  position: relative;
+  top: 40px;
 }

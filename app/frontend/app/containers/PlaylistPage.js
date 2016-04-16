@@ -39,6 +39,7 @@ const PlaylistPage = React.createClass({
 
       let h1Style = {
         margin: '30px',
+        color: 'rgba(168, 168, 168,.9)',
       }
 
     return (

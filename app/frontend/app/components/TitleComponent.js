@@ -4,8 +4,8 @@ const TitleComponent = React.createClass({
   render: function(){
 
     let logoStyle = {
-      backgroundColor: '#590046',
-      color: 'white',
+      backgroundColor: 'rgba(142, 38, 113, .8)',
+      color: 'rgba(168, 168, 168, 1)',
       borderRadius: '50%',
       width: '120px',
       height: '120px',
