@@ -9,21 +9,10 @@ let styles = require('../css/styles.css');
 const TopHitsComponent = React.createClass({
 
   render: function(){
-    console.log(this.props.songs.track);
-
-    let songCompStyle = {
-      margin: '30px',
-      padding: '30px',
-      borderRadius: '10px',
-      backgroundColor: '#fff',
-      display: 'inline-flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-    };
-
+    console.log(this.props.songs.track)
     let song = this.props.songs.track.map(function(obj){
       return (
-        <div style={songCompStyle} className='songComp'>
+        <div key={obj['@attr'].rank} className='songComp'>
           <SongComponent
             name={obj.name}
             artist={obj.artist.name}
@@ -31,7 +20,6 @@ const TopHitsComponent = React.createClass({
             country={obj['@attr'].country}
             album_image={obj.image[3]['#text']}
             song_url={obj.url}
-
             songs={obj.lastFM}
           />
         </div>
@@ -39,7 +27,7 @@ const TopHitsComponent = React.createClass({
     });
 
     return (
-      <div>
+      <div className='flexResults'>
         {song}
       </div>
     )

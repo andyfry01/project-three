@@ -7,7 +7,7 @@ import ajaxHelpers from '../utils/ajaxHelpers';
 let styles = require('../css/styles.css');
 
 const SignedInPage = React.createClass({
-  
+
   componentDidMount: function() {
     console.log("hi signedInPage has loaded");
   },
@@ -38,7 +38,7 @@ const SignedInPage = React.createClass({
   getCountrySongs: function(){
     if (this.state.ajaxReturn.track){
       return (
-        <div className='topHitsStyles'>
+        <div>
           <TopHitsComponent
             songs={this.state.ajaxReturn}
           />
@@ -48,6 +48,11 @@ const SignedInPage = React.createClass({
   },
 
   render: function() {
+
+    let divStyle = {
+      display: 'inline-flex',
+    };
+
     return (
       <div>
         <HeaderComponent buttonText={"View Playlist"} link={"PlaylistPage"}/>

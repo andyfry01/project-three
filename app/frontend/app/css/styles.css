@@ -17,8 +17,20 @@ a {
   font-size: 20px;
 }
 
-.topHitsStyles {
+.flexStyle {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: red;
+  width: 100%;
+}
+
+.test {
+  display: flex;
+}
+
+.flexResults {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }

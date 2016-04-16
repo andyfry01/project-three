@@ -80,7 +80,6 @@ const LandingPage = React.createClass({
       top: '40px',
     };
 
-
     return (
       <div className='formComp'>
         <div style={divStyle}>

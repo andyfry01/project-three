@@ -4,8 +4,6 @@ import HeaderComponent from '../components/HeaderComponent';
 import ajaxHelpers from '../utils/ajaxHelpers';
 import {Link} from 'react-router';
 
-let styles = require('../css/styles.css');
-
 const PlaylistPage = React.createClass({
 
   componentDidMount: function() {
@@ -38,11 +36,21 @@ const PlaylistPage = React.createClass({
   },
 
   render: function() {
+
+      let divStyle = {
+        margin: '30px',
+      }
+
     return (
       <div>
         <HeaderComponent buttonText={"Back to Map"} link={"signedInPage"} />
-        <h1> hi im playlist page</h1>
-        {this.getPlaylist()}
+
+        <div style={divStyle}>
+          <h1> hi im playlist page</h1>
+            <div>
+              {this.getPlaylist()}
+            </div>
+        </div>
       </div>
     );
   }
