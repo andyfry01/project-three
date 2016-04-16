@@ -2,7 +2,13 @@ import axios from 'axios';
 import API_KEY from './API_KEY';
 
 const helpers = {
-  //finding user
+
+  //get all users
+  getAllUsers: function(){
+    return axios.get('http://localhost:3000/users');
+  },
+
+  //finding user by name
   findUser: function(user){
     return axios.post('http://localhost:3000/users/find', user);
   },
@@ -15,6 +21,16 @@ const helpers = {
   //request to lastFM
   findCountrySongs: function(countryName){
     return axios.get('http://ws.audioscrobbler.com/2.0/?format=json&method=geo.gettoptracks&country=' + countryName + '&api_key=' + API_KEY);
+  },
+
+  //find loggedIn user
+  findLoggedInUser: function(){
+    return axios.get('http://localhost:3000/loggedin');
+  },
+
+  //find current user's playlist
+  findCurrentPlaylist: function(){
+    return axios.get('http://localhost:3000/playlist');
   },
 
   //add song to user playlist
@@ -53,10 +69,7 @@ const helpers = {
     delayPostSong();
     //finds logged in user, adds song to playlist array
     delayAddSong();
-
-
   }
 
 }
-
 export default helpers;

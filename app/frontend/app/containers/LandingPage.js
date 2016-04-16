@@ -3,8 +3,7 @@ import {Link} from 'react-router';
 import TitleComponent from '../components/TitleComponent';
 import LoginComponent from '../components/LoginComponent';
 import ajaxHelpers from '../utils/ajaxHelpers';
-
-let styles = require('../css/landingStyles.css');
+let    styles = require('../css/landingStyles.css');
 
 const LandingPage = React.createClass({
   contextTypes: {
@@ -68,33 +67,32 @@ const LandingPage = React.createClass({
 
   render: function() {
 
-    let divStyle = {
-      backgroundColor: 'rgba(255,255,255,.5)',
-      border: '1px solid #ddd',
+    let loginBoxStyle = {
+      backgroundColor: 'rgba(0,0,0,.2)',
+      border: '1px solid rgba(255,255,255,.3)',
       minWidth: '40%',
       padding: '20px',
       margin: 'auto',
       borderRadius: '5px',
       textAlign: 'center',
-      position: 'relative',
-      top: '40px',
     };
 
-
     return (
-      <div className='formComp'>
-        <div style={divStyle}>
-          <TitleComponent className='titleComp' />
-          <LoginComponent
-            onChangeUser={this.handleOnChangeUser}
-            onChangePassword={this.handleOnChangePassword}
-            addUser={this.handleSubmitUser}
-            findUser={this.handleFindUser}
-            />
+      <div className='loginBoxPosition'>
+        <div className='landingFlex'>
+          <div style={loginBoxStyle}>
+            <TitleComponent/>
+            <LoginComponent
+              onChangeUser={this.handleOnChangeUser}
+              onChangePassword={this.handleOnChangePassword}
+              addUser={this.handleSubmitUser}
+              findUser={this.handleFindUser}
+              />
+          </div>
         </div>
       </div>
-    )
+    );
   }
-})
+});
 
 export default LandingPage;

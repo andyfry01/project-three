@@ -4,6 +4,7 @@ import ButtonComponent from '../components/ButtonComponent';
 import {Link} from 'react-router';
 
 const HeaderComponent = React.createClass({
+
   render: function() {
 
     let headerStyle = {
@@ -17,13 +18,17 @@ const HeaderComponent = React.createClass({
     };
 
     return (
-      <div className="main-container">
+      <div>
         <div style={headerStyle}>
           <p>
             App Name
           </p>
 
-          <ButtonComponent buttonText={this.props.buttonText} link={this.props.link}/>
+          <ButtonComponent
+            buttonText={this.props.buttonText}
+            link={this.props.link}
+          />
+
         </div>
       </div>
     );

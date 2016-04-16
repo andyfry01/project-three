@@ -1,11 +1,16 @@
-{
-  "_id": {
-    "$oid": "570e4d58e42e60916cfdcbbb"
-  },
-  "name": "Trouble",
-  "artist": "T Swift",
-  "country": "America",
-  "rank": 1.0,
-  "album_image": "album.jpg",
-  "song_url": "song.com"
-}
+db.songs.insert({
+  "name" : "Trouble",
+  "artist" : "T Swift",
+  "rank" : 1,
+  "country" : "Peru",
+  "album_image" : "album.jpg",
+  "song_url" : "song.com"
+})
+db.songs.insert({
+  "name" : "Hello",
+  "artist" : "Adele",
+  "rank" : 2,
+  "country" : "Peru",
+  "album_image" : "album.jpg",
+  "song_url" : "song.com"
+})

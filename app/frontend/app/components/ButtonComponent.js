@@ -3,7 +3,6 @@ import {Link} from 'react-router';
 
 const ButtonComponent = React.createClass({
   render: function() {
-    console.log("props for ButtonComponent are:", this.props);
 
     let pStyle = {
       fontSize: '15px',
