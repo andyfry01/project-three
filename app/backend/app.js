@@ -44,6 +44,8 @@ app.post('/users/find', function(request, response){
         } else if (result.length) {
           console.log('user found:', result);
           response.json(result)
+          usersCollection.update({}, {$set: {loggedIn: false}}, {multi: true})
+          
         } else {
           console.log('no users found in database with that username/password');
           response.json('no users found in database with that username/password')
