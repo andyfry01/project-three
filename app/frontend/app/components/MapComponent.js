@@ -20,7 +20,7 @@ const MapComponent = React.createClass({
 
     return (
       <div style={divStyle}>
-
+        <object type="image/svg+xml" data="../map/worldLow.svg"></object>
         <input placeholder='enter a country' onChange={this.countryName}/>
         <button onClick={this.props.onSubmit}>Go!</button>
         <br/>

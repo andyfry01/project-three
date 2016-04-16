@@ -1,9 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router';
+import routes from '../config/routes'
+import {browserHistory} from 'react-router'
 import TitleComponent from '../components/TitleComponent';
 import LoginComponent from '../components/LoginComponent';
+import SignedInPage from './SignedInPage';
 import ajaxHelpers from '../utils/ajaxHelpers';
-let    styles = require('../css/landingStyles.css');
+
+let styles = require('../css/landingStyles.css');
 
 const LandingPage = React.createClass({
   contextTypes: {
@@ -15,7 +19,8 @@ const LandingPage = React.createClass({
       user: '',
       password: '',
       playlist: [],
-      loggedIn: false
+      loggedIn: false,
+      link: ''
     }
   },
 
@@ -46,7 +51,14 @@ const LandingPage = React.createClass({
     };
     console.log('finding user');
     console.log('the user looks like this', user);
-     ajaxHelpers.findUser(user)
+    if (user.user.length < 1 && user.password.length < 1) {
+      alert('Please enter a username and password')
+    } else {
+      console.log('props');
+      console.log(this.props);
+      let history = this.props.history
+      ajaxHelpers.findUser(user)
+    }
   },
 
   handleSubmitUser: function(e) {
@@ -67,32 +79,34 @@ const LandingPage = React.createClass({
 
   render: function() {
 
-    let loginBoxStyle = {
-      backgroundColor: 'rgba(0,0,0,.2)',
-      border: '1px solid rgba(255,255,255,.3)',
+    let divStyle = {
+      backgroundColor: 'rgba(255,255,255,.5)',
+      border: '1px solid #ddd',
       minWidth: '40%',
       padding: '20px',
       margin: 'auto',
       borderRadius: '5px',
       textAlign: 'center',
+      position: 'relative',
+      top: '40px',
     };
 
+
     return (
-      <div className='loginBoxPosition'>
-        <div className='landingFlex'>
-          <div style={loginBoxStyle}>
-            <TitleComponent/>
-            <LoginComponent
-              onChangeUser={this.handleOnChangeUser}
-              onChangePassword={this.handleOnChangePassword}
-              addUser={this.handleSubmitUser}
-              findUser={this.handleFindUser}
-              />
-          </div>
+      <div className='formComp'>
+        <div style={divStyle}>
+          <TitleComponent className='titleComp' />
+          <LoginComponent
+            onChangeUser={this.handleOnChangeUser}
+            onChangePassword={this.handleOnChangePassword}
+            addUser={this.handleSubmitUser}
+            findUser={this.handleFindUser}
+            link={this.state.link}
+            />
         </div>
       </div>
-    );
+    )
   }
-});
+})
 
 export default LandingPage;
