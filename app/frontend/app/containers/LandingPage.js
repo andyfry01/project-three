@@ -15,7 +15,7 @@ const LandingPage = React.createClass({
       user: '',
       password: '',
       playlist: [],
-      loggedIn: false
+      loggedIn: true
     }
   },
 

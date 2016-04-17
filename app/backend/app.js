@@ -2,6 +2,7 @@ var express = require('express');
 var cors = require('cors');
 var bodyParser = require('body-parser');
 var mongodb = require('mongodb');
+var Promise = require('es6-promise').Promise;
 var app = express();
 
 app.use(cors());
@@ -79,15 +80,38 @@ app.post('/users/find', function(request, response){
           console.log("error", error);
           response.json("error")
         } else if (result.length) {
+          usersCollection.update({}, {$set: {loggedIn: false}}, {multi: true});
+            if ( usersCollection.find({user: request.body.user}, {loggedIn: true}) ) {
+              setTimeout(function() {
+              usersCollection.update({user: request.body.user}, {$set: {loggedIn: true}});
+              console.log("request status:", request.body);
+              console.log("set timeout is running");
+            }, 1000);
+              if ( usersCollection.find({user: result[0].user}, {loggedIn: false}) ) {
+                usersCollection.update({user: result[0].user}, {$set: {loggedIn: true}});
+                console.log("conditions are met so i am runnin");
+                console.log("results log status:", result[0].loggedIn);
+              }
+            }
+      console.log("set timeout has now finished");
+          // var promise = new Promise (function(resolve, reject) {
+          //   if ( usersCollection.find({user: request.body.user}, {loggedIn: true}) ) {
+          //     resolve("changed current user in db to true!");
+          //     console.log("this is who you're trying to change:", request.body.user);
+          //     usersCollection.update({user: request.body.user}, {$set: {loggedIn: true}})
+          //   } else {
+          //     reject(Error("had trouble setting loggedIn to true, sorry dude"))
+          //   }
+          // });//end of promise
+          // promise.then(function(result) {
+          //
+          //   console.log("result from promise is:", result);
+          // }, function(err) {
+          //   console.log("somethin broke dude:", err);
+          // })
           console.log('user found:', result);
           response.json(result);
-          usersCollection.update({user: request.body.user}, {$set: {loggedIn: true}});
-            console.log("request logged status:", request.body.loggedIn);
-            console.log("hi is the code reaching this point");
-            if (request.body.loggedIn === true) {
-              usersCollection.updateMany({user: {$ne: request.body.user}}, {$set: {loggedIn: false}}, {multi: true});
-            console.log("hi sne");
-          };
+          console.log("hi the code is reaching this point");
             // if (usersCollection.find({user: result[0].user}, {loggedIn: false})) {
             //   usersCollection.update({user: result[0].user}, {$set: {loggedIn: true}});
             //   console.log("request username looks like:", request.body.user);
@@ -100,9 +124,11 @@ app.post('/users/find', function(request, response){
           console.log('no users found in database with that username/password');
           response.json('no users found in database with that username/password')
         }
+        setTimeout(function() {
         db.close(function(){
           console.log("database closed");
         }) //end db.close()
+      }, 2000);
       }) //end usersCollection.find()
     } //end else
   }) //end MongoClient connect
