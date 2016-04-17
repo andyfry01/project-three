@@ -38,17 +38,25 @@ const PlaylistPage = React.createClass({
 
   render: function() {
 
-      let h1Style = {
-        margin: '30px',
-        color: 'rgba(168, 168, 168,.9)',
-      }
+    let divStyle = {
+      divPos: {
+        position: 'relative',
+        top: '110px'
+      },
+      h1Style: {
+        color: 'rgba(168, 168, 168,1)',
+        margin: '0 20px',
+        fontSize: '20px',
+      },
+    }
+
 
     return (
       <div>
         <HeaderComponent buttonText={"Back to Map"} link={"signedInPage"} />
 
-        <div>
-          <h1 style={h1Style}> Playlist</h1>
+        <div style={divStyle.divPos}>
+          <h1 style={divStyle.h1Style}> Playlist</h1>
             <div>
               {this.getPlaylist()}
             </div>
