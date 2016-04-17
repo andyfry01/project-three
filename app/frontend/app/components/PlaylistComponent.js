@@ -15,12 +15,13 @@ const PlaylistComponent = React.createClass({
       return (
         <div key={obj._id}>
           <SongComponent
+            id={obj['_id']}
             name={obj.name}
             artist={obj.artist}
             rank={obj.rank}
             album_image={obj.albumImage}
             song_url={obj.songURL}
-            btnValue='Remove'
+            btnText='Remove'
           />
 
         </div>

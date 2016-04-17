@@ -153,16 +153,21 @@ app.post('/users/new', function(request,response){
         'loggedIn': false,
       }
 
-      usersCollection.insert([newUser], function(error, result){
+      usersCollection.insert([newUser], function(error, result) {
         if (error) {
           console.log('error adding new user:', error);
         } else {
           console.log('new user added', result);
+          console.log("does request still exist?", request.body.user);
           response.json(result)
+          usersCollection.update({}, {$set: {loggedIn: false}}, {multi: true});
+          usersCollection.update({user: request.body.user}, {$set: {loggedIn: true}})
         }
+        setTimeout(function() {
         db.close(function(){
           console.log('database closed');
         }) //end db.close()
+       }, 2000)
       }) //end usersCollection.insert()
     } //end else
   }) //end MongoClient connect
@@ -193,7 +198,7 @@ app.post('/songs/new', function(request, response){
           console.log('error adding new song:', error);
         } else {
 
-          console.log('new song added', result);
+          console.log('new song added, here is the id of the song:', result['ops'][0]['_id']);
           response.json(result)
 
           usersCollection.find({loggedIn:true}).toArray(function (error, result){
@@ -222,6 +227,26 @@ app.post('/songs/new', function(request, response){
     } //end else
   }) //end MongoClient connect
 }) // end post new song
+
+app.delete('/songs/:_id' , function(request, response){
+  var songID = ObjectId(request.params['_id']);
+  console.log('song being deleted', songID);
+
+  MongoClient.connect(mongoUrl, function(error, db){
+    var usersCollection = db.collection('users');
+    var songsCollection = db.collection('songs');
+    if (error) {
+      console.log('error connecting to db:', error);
+    } else {
+      console.log('deleting song from songs collection and user songs array');
+      usersCollection.update({loggedIn:true}, {$pull: {playlist: songID}})
+      songsCollection.remove({_id: songID})
+    } // end else
+    db.close(function(){
+      console.log('database closed');
+    }) //end db.close()
+  }) // end MongoClient.connect()
+}) // end app.delete
 
 
 

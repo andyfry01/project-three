@@ -6,9 +6,9 @@ const SongComponent = React.createClass({
 
   getInitialState: function(){
     return {
-      btnValue: this.props.btnValue,
+      btnText: this.props.btnText,
+      mongoID: '',
       playUrl: '',
-      route: '', //use for future delete button
       btnBgColor: 'rgba(142, 38, 113,.9)',
       playingDiv: '',
     }
@@ -34,14 +34,33 @@ const SongComponent = React.createClass({
     })
   },
 
-  addSong: function(){
+  handleClick: function(){
 
-    if(this.state.btnValue === 'Save'){
+    if (this.state.btnText === 'Remove'){
       this.setState({
-        btnValue: 'Saved!',
+        btnText: 'Removed!',
         btnBgColor: '#b71998',
       });
+      let mongoID = this.props.id;
+      this.delSong(mongoID);
+    };
+
+    if (this.state.btnText === 'Save'){
+      this.setState({
+        btnText: 'Saved!',
+        btnBgColor: '#b71998',
+      });
+      this.addSong();
     }
+
+  },
+
+  delSong: function(mongoID){
+    console.log("trying to delete song");
+    ajaxHelpers.deleteSong(mongoID)
+  },
+
+  addSong: function(){
 
     let song = {
       name: this.props.name,
@@ -51,7 +70,15 @@ const SongComponent = React.createClass({
       album_image: this.props.album_image,
       song_url: this.props.song_url
     }
+
     ajaxHelpers.addSongToPlaylist(song)
+    .then(function(response){
+      console.log('logging response after adding song', response.data.ops[0]['_id']);
+      this.setState({
+        mongoID: response.data.ops[0]['_id']
+      })
+      console.log("Mongo ID for song:", this.state.mongoID);
+    }.bind(this))
   },
 
   getSongs: function(){
@@ -120,9 +147,9 @@ const SongComponent = React.createClass({
         <div style={mainStyle.flex}>
           <button
             style={mainStyle.formatBtn}
-            onClick={this.addSong}
+            onClick={this.handleClick}
             className="addSongBtn"
-            > {this.state.btnValue}
+            > {this.state.btnText}
           </button>
 
           <div style={mainStyle.hide}>
@@ -136,6 +163,10 @@ const SongComponent = React.createClass({
         </div>
       </div>
     )
+  },
+
+  componentDidMount: function(){
+    console.log("component mounted");
   },
 
   render: function() {

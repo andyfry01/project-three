@@ -28,6 +28,13 @@ const helpers = {
       return axios.post('http://localhost:3000/songs/new', song);
   },
 
+  //delete song from user playlist
+  deleteSong: function(mongoID) {
+    console.log("mongo ID:", mongoID);
+    console.log("delete song triggered the ajax helper");
+    return axios.delete('http://localhost:3000/songs/' + mongoID)
+  },
+
   //request to lastFM
   findCountrySongs: function(countryName){
     return axios.get('http://ws.audioscrobbler.com/2.0/?format=json&method=geo.gettoptracks&country=' + countryName + '&api_key=' + API_KEY);
