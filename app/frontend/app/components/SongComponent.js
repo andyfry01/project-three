@@ -11,9 +11,11 @@ const SongComponent = React.createClass({
   },
 
   playSong: function(){
-    let play = {
-      song: this.props.name,
-    }
+    ajaxHelpers.playSong(this.props.name)
+    .then(function(response){
+      console.log('spotify:', response.data.tracks.items[0].preview_url)
+      let playUrl = response.data.tracks.items[0].preview_url;
+    }.bind(this));
   },
 
   addSong: function(){
@@ -98,6 +100,7 @@ const SongComponent = React.createClass({
           </button>
           <button
             style={mainStyle.formatBtn}
+            onClick={this.playSong}
             > play
           </button>
         </div>

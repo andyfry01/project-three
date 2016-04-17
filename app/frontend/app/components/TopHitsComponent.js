@@ -6,7 +6,8 @@ let    styles = require('../css/styles.css');
 const TopHitsComponent = React.createClass({
 
   render: function(){
-    console.log(this.props.songs.track)
+    console.log('spotify', this.props.play)
+    console.log('lastfm:', this.props.songs.track)
     let song = this.props.songs.track.map(function(obj){
       return (
         <div key={obj['@attr'].rank}>
