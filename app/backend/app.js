@@ -153,16 +153,21 @@ app.post('/users/new', function(request,response){
         'loggedIn': false,
       }
 
-      usersCollection.insert([newUser], function(error, result){
+      usersCollection.insert([newUser], function(error, result) {
         if (error) {
           console.log('error adding new user:', error);
         } else {
           console.log('new user added', result);
+          console.log("does request still exist?", request.body.user);
           response.json(result)
+          usersCollection.update({}, {$set: {loggedIn: false}}, {multi: true});
+          usersCollection.update({user: request.body.user}, {$set: {loggedIn: true}})
         }
+        setTimeout(function() {
         db.close(function(){
           console.log('database closed');
         }) //end db.close()
+       }, 2000)
       }) //end usersCollection.insert()
     } //end else
   }) //end MongoClient connect
