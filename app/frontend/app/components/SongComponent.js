@@ -10,6 +10,7 @@ const SongComponent = React.createClass({
       playUrl: '',
       route: '', //use for future delete button
       btnBgColor: 'rgba(142, 38, 113,.9)',
+      playingDiv: '',
     }
   },
 
@@ -20,6 +21,7 @@ const SongComponent = React.createClass({
       console.log('spotify:', response.data.tracks.items[0].preview_url)
       this.setState({
         playUrl: response.data.tracks.items[0].preview_url,
+        playingDiv: '0 0 25px #6E41E1',
       })
     }.bind(this));
   },
@@ -27,6 +29,8 @@ const SongComponent = React.createClass({
   pauseSong: function(){
     this.setState({
       playUrl: '',
+      playingDiv: '',
+      playingDivGlow: '',
     })
   },
 
@@ -69,6 +73,7 @@ const SongComponent = React.createClass({
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         fontWeight: 'bolder',
+        boxShadow: this.state.playingDiv,
       },
       formatBtn: {
         backgroundColor: this.state.btnBgColor,
