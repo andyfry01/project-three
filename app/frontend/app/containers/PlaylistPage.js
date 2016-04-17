@@ -28,6 +28,7 @@ const PlaylistPage = React.createClass({
       return (
         <div>
           <PlaylistComponent
+            savedTxt={this.props.savedTxt}
             playlist={this.state.ajaxReturn}
           />
         </div>
@@ -47,7 +48,7 @@ const PlaylistPage = React.createClass({
         <HeaderComponent buttonText={"Back to Map"} link={"signedInPage"} />
 
         <div>
-          <h1 style={h1Style}> hi im playlist page</h1>
+          <h1 style={h1Style}> Playlist</h1>
             <div>
               {this.getPlaylist()}
             </div>

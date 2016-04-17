@@ -3,7 +3,22 @@ import ajaxHelpers from '../utils/ajaxHelpers'
 
 const SongComponent = React.createClass({
 
+  getInitialState: function(){
+    return {
+      btnValue: this.props.btnValue,
+      route: '', //use for future delete button
+    }
+  },
+
   addSong: function(){
+
+    if(this.state.btnValue === 'Save to Playlist'){
+      console.log('checking the state');
+      this.setState({
+        btnValue: 'Saved!',
+      });
+    }
+
     let song = {
       name: this.props.name,
       artist: this.props.artist,
@@ -16,6 +31,7 @@ const SongComponent = React.createClass({
   },
 
   getSongs: function(){
+    // console.log('songs', this.props);
 
     let songCompStyle = {
       formatDiv: {
@@ -48,10 +64,16 @@ const SongComponent = React.createClass({
         <div>
           <p> Track: {this.props.name}</p>
           <p> Artist: {this.props.artist}</p>
+          <p> Rank: {this.props.rank}</p>
         </div>
 
         <div>
-          <button style={songCompStyle.formatBtn} onClick={this.addSong} className="addSongBtn">Add to Playlist</button>
+          <button
+            style={songCompStyle.formatBtn}
+            onClick={this.addSong}
+            className="addSongBtn"
+          > {this.state.btnValue}
+          </button>
         </div>
 
       </div>

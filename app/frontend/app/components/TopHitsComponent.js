@@ -18,6 +18,7 @@ const TopHitsComponent = React.createClass({
             album_image={obj.image[3]['#text']}
             song_url={obj.url}
             songs={obj.lastFM}
+            btnValue='Save to Playlist'
           />
         </div>
       );

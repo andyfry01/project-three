@@ -14,7 +14,9 @@ const PlaylistComponent = React.createClass({
             rank={obj.rank}
             album_image={obj.albumImage}
             song_url={obj.songURL}
+            btnValue='Saved!'
           />
+
         </div>
       );
     });
