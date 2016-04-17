@@ -1,6 +1,6 @@
 import React from 'react';
-import ajaxHelpers from '../utils/ajaxHelpers'
-import ReactAudioPlayer from './react-audio-player'
+import ajaxHelpers from '../utils/ajaxHelpers';
+import ReactAudioPlayer from 'react-audio-player';
 
 const SongComponent = React.createClass({
 
@@ -13,6 +13,7 @@ const SongComponent = React.createClass({
   },
 
   playSong: function(){
+    console.log('should play song now');
     ajaxHelpers.playSong(this.props.name)
     .then(function(response){
       console.log('spotify:', response.data.tracks.items[0].preview_url)
@@ -20,6 +21,12 @@ const SongComponent = React.createClass({
         playUrl: response.data.tracks.items[0].preview_url,
       })
     }.bind(this));
+  },
+
+  pauseSong: function(){
+    this.setState({
+      playUrl: '',
+    })
   },
 
   addSong: function(){
@@ -84,11 +91,18 @@ const SongComponent = React.createClass({
         alignItems: 'center',
         position: 'relative',
         top: '100px',
+      },
+      playStyle: {
+        visibility: 'hidden',
       }
     };
 
     return (
-      <div style={mainStyle.formatDiv} className='songInfo'>
+      <div
+        style={mainStyle.formatDiv}
+        onMouseEnter={this.playSong}
+        onMouseLeave={this.pauseSong}
+        className='songInfo'>
 
         <div style={mainStyle.center}>
           <span style={mainStyle.artist}>{this.props.artist}</span>
@@ -102,15 +116,16 @@ const SongComponent = React.createClass({
             className="addSongBtn"
             > {this.state.btnValue}
           </button>
-            <button
-            style={mainStyle.formatBtn}
-            onClick={this.playSong}
-            >Play</button>
-          <ReactAudioPlayer
-            src={this.state.playUrl}
-          />
-        </div>
 
+          <div style={mainStyle.playStyle}>
+            <ReactAudioPlayer
+              src={this.state.playUrl}
+              autoPlay='true'
+              preload='none'
+            />
+          </div>
+
+        </div>
       </div>
     )
   },
