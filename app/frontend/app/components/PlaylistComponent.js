@@ -5,6 +5,12 @@ const PlaylistComponent = React.createClass({
 
   render: function(){
 
+    let divStyle = {
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'space-around',
+    }
+
     let playlist = this.props.playlist.data.map(function(obj){
       return (
         <div key={obj._id}>
@@ -22,7 +28,7 @@ const PlaylistComponent = React.createClass({
     });
 
     return (
-      <div className='flexResults'>
+      <div style={divStyle}>
         {playlist}
       </div>
     );

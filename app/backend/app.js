@@ -40,7 +40,7 @@ app.get('/playlist', function(request, response){
           var songsCollection = db.collection('songs');
           var obj_ids = songsArr.map(function (item){ return ObjectId(item)}); //help from http://stackoverflow.com/questions/29560961/query-mongodb-for-multiple-objectids-in-array
           console.log("the object IDs we pass into the song collection find look like this", obj_ids);
-          songsCollection.find({'_id': {'$in': obj_ids}})
+          songsCollection.find({'_id': {'$in': obj_ids}}).sort({_id: -1})
           .toArray(function(error, result){
             if (error){
               console.log('error using $in', error);
