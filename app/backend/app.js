@@ -237,6 +237,9 @@ app.delete('/songs/:_id' , function(request, response){
       usersCollection.update({loggedIn:true}, {$pull: {playlist: songID}})
       songsCollection.remove({_id: songID})
     } // end else
+    db.close(function(){
+      console.log('database closed');
+    }) //end db.close()
   }) // end MongoClient.connect()
 }) // end app.delete
 
