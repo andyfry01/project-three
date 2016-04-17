@@ -9,6 +9,7 @@ const SongComponent = React.createClass({
       btnValue: this.props.btnValue,
       playUrl: '',
       route: '', //use for future delete button
+      btnBgColor: 'rgba(142, 38, 113,.9)',
     }
   },
 
@@ -34,6 +35,7 @@ const SongComponent = React.createClass({
     if(this.state.btnValue === 'Save'){
       this.setState({
         btnValue: 'Saved!',
+        btnBgColor: '#b71998',
       });
     }
 
@@ -69,7 +71,7 @@ const SongComponent = React.createClass({
         fontWeight: 'bolder',
       },
       formatBtn: {
-        backgroundColor: 'rgba(142, 38, 113,.9)',
+        backgroundColor: this.state.btnBgColor,
         border: '1px solid rgba(142, 38, 113,1)',
         color: 'rgba(255, 255, 255, 1)',
         fontSize: '17px'
@@ -89,10 +91,11 @@ const SongComponent = React.createClass({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        textAlign: 'center',
         position: 'relative',
         top: '100px',
       },
-      playStyle: {
+      hide: {
         visibility: 'hidden',
       }
     };
@@ -117,7 +120,7 @@ const SongComponent = React.createClass({
             > {this.state.btnValue}
           </button>
 
-          <div style={mainStyle.playStyle}>
+          <div style={mainStyle.hide}>
             <ReactAudioPlayer
               src={this.state.playUrl}
               autoPlay='true'

@@ -25,11 +25,6 @@ a {
   cursor: cell;
 }
 
-.addSongBtn {
-  font-size: 10px;
-  width: 100%;
-}
-
 .flexStyle {
   display: flex;
   justify-content: space-between;
@@ -45,4 +40,12 @@ a {
 
 .btnStyle {
   width: 100%;
+}
+
+.header {
+  position: absolute;
+  overflow-y: scroll;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }

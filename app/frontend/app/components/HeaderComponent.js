@@ -8,13 +8,18 @@ const HeaderComponent = React.createClass({
   render: function() {
 
     let headerStyle = {
-      backgroundColor: 'black',
+      backgroundColor: 'rgba(0,0,0,.8)',
       color: '#fff',
       lineHeight: '50px',
       padding: '20px',
       display: 'flex',
       justifyContent: 'space-between',
       fontSize: '30px',
+      position: 'absolute',
+      overflowY: 'scroll',
+      top: '0',
+      width: '100%',
+      zIndex: '1',
     };
 
     return (
