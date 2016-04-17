@@ -1,11 +1,13 @@
 import React from 'react';
 import ajaxHelpers from '../utils/ajaxHelpers'
+import ReactAudioPlayer from './react-audio-player'
 
 const SongComponent = React.createClass({
 
   getInitialState: function(){
     return {
       btnValue: this.props.btnValue,
+      playUrl: '',
       route: '', //use for future delete button
     }
   },
@@ -14,7 +16,9 @@ const SongComponent = React.createClass({
     ajaxHelpers.playSong(this.props.name)
     .then(function(response){
       console.log('spotify:', response.data.tracks.items[0].preview_url)
-      let playUrl = response.data.tracks.items[0].preview_url;
+      this.setState({
+        playUrl: response.data.tracks.items[0].preview_url,
+      })
     }.bind(this));
   },
 
@@ -98,11 +102,13 @@ const SongComponent = React.createClass({
             className="addSongBtn"
             > {this.state.btnValue}
           </button>
-          <button
+            <button
             style={mainStyle.formatBtn}
             onClick={this.playSong}
-            > play
-          </button>
+            >Play</button>
+          <ReactAudioPlayer
+            src={this.state.playUrl}
+          />
         </div>
 
       </div>
