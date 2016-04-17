@@ -47,12 +47,20 @@ const SignedInPage = React.createClass({
   },
 
   render: function() {
+    let divStyle = {
+      position: 'relative',
+      top: '120px',
+    }
 
     return (
       <div>
         <HeaderComponent buttonText={"View Playlist"} link={"PlaylistPage"}/>
-        <MapComponent countryInput={this.countryInput} onSubmit={this.findCountrySongsAjaxCall} />
-        {this.getCountrySongs()}
+
+        <div style={divStyle}>
+          <MapComponent countryInput={this.countryInput} onSubmit={this.findCountrySongsAjaxCall} />
+          {this.getCountrySongs()}
+        </div>
+
       </div>
     );
   }

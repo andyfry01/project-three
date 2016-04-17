@@ -9,13 +9,10 @@ const MapComponent = React.createClass({
   render: function(){
 
     let divStyle = {
+      padding: '20px 20px 50px',
       width: '90%',
       margin: 'auto',
-      position: 'relative',
       display: 'flex',
-      top: '20px',
-      textAlign: 'center',
-      padding: '20px 20px 50px',
     };
 
     return (

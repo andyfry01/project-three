@@ -8,7 +8,7 @@ const HeaderComponent = React.createClass({
   render: function() {
 
     let headerStyle = {
-      backgroundColor: 'rgba(0,0,0,.8)',
+      backgroundColor: 'rgba(0,0,0,.9)',
       color: '#fff',
       lineHeight: '50px',
       padding: '20px',
