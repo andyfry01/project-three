@@ -53,7 +53,7 @@ const PlaylistPage = React.createClass({
 
     return (
       <div>
-        <HeaderComponent buttonText={"Back to Map"} link={"signedInPage"} />
+        <HeaderComponent buttonText={"Back to Search"} link={"signedInPage"} />
 
         <div style={divStyle.divPos}>
           <h1 style={divStyle.h1Style}> Playlist</h1>
