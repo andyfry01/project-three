@@ -10,10 +10,15 @@ const SongComponent = React.createClass({
     }
   },
 
+  playSong: function(){
+    let play = {
+      song: this.props.name,
+    }
+  },
+
   addSong: function(){
 
     if(this.state.btnValue === 'Save to Playlist'){
-      console.log('checking the state');
       this.setState({
         btnValue: 'Saved!',
       });
@@ -31,16 +36,14 @@ const SongComponent = React.createClass({
   },
 
   getSongs: function(){
-    // console.log('songs', this.props);
 
-    let songCompStyle = {
+    let mainStyle = {
       formatDiv: {
         backgroundColor: 'rgba(255,255,255,.1)',
-        color: 'rgba(255,255,255,.8)',
-        textShadow: '2px 2px #000',
+        color: 'rgba(255,255,255,.9)',
+        textShadow: '0 0 5px #000',
         borderRadius: '5px',
         margin: '20px',
-        padding: '30px',
         width: '370px',
         height: '370px',
         display: 'flex',
@@ -50,29 +53,52 @@ const SongComponent = React.createClass({
         backgroundImage: 'url(' + this.props.album_image + ')',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
+        fontWeight: 'bolder',
       },
       formatBtn: {
         backgroundColor: 'rgba(142, 38, 113,.9)',
         border: '1px solid rgba(142, 38, 113,1)',
         color: 'rgba(255, 255, 255, 1)',
+        fontSize: '17px'
       },
+      flex: {
+        display: 'flex',
+      },
+      track: {
+        fontSize: '30px',
+        textTransform: 'uppercase',
+      },
+      artist: {
+        fontSize: '20px',
+      },
+      center: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'relative',
+        top: '100px',
+      }
     };
 
     return (
-      <div style={songCompStyle.formatDiv} className='songInfo'>
+      <div style={mainStyle.formatDiv} className='songInfo'>
 
-        <div>
-          <p> Track: {this.props.name}</p>
-          <p> Artist: {this.props.artist}</p>
-          <p> Rank: {this.props.rank}</p>
+        <div style={mainStyle.center}>
+          <span style={mainStyle.artist}>{this.props.artist}</span>
+          <span style={mainStyle.track}> {this.props.name}</span>
         </div>
 
-        <div>
+        <div style={mainStyle.flex}>
           <button
-            style={songCompStyle.formatBtn}
+            style={mainStyle.formatBtn}
             onClick={this.addSong}
             className="addSongBtn"
-          > {this.state.btnValue}
+            > {this.state.btnValue}
+          </button>
+          <button
+            style={mainStyle.formatBtn}
+            > play
           </button>
         </div>
 

@@ -31,7 +31,12 @@ const helpers = {
   //add song to user playlist
   addSongToPlaylist: function(song){
       return axios.post('http://localhost:3000/songs/new', song);
-  }
+  },
+
+  //play song from spotify
+  playSong: function(song){
+      return axios.get('https://api.spotify.com/v1/search?q=' + song + '&type=track');
+  },
 
 }
 export default helpers;
