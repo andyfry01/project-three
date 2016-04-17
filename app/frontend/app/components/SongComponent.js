@@ -31,7 +31,7 @@ const SongComponent = React.createClass({
 
   addSong: function(){
 
-    if(this.state.btnValue === 'Save to Playlist'){
+    if(this.state.btnValue === 'Save'){
       this.setState({
         btnValue: 'Saved!',
       });
