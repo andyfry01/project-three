@@ -109,9 +109,13 @@ app.post('/users/find', function(request, response){
         } else if (result.length) {
           console.log('user found:', result);
           response.json(result);
-          // usersCollection.updateMany({user: {$ne: result[0]['user']}}, {$set: {loggedIn: false}}, {multi: true});
-              usersCollection.update({user: request.body.user}, {$set: {loggedIn: true}});
-              console.log("hi is the code reaching this point");
+          usersCollection.update({user: request.body.user}, {$set: {loggedIn: true}});
+            console.log("request logged status:", request.body.loggedIn);
+            console.log("hi is the code reaching this point");
+            if (request.body.loggedIn === true) {
+              usersCollection.updateMany({user: {$ne: request.body.user}}, {$set: {loggedIn: false}}, {multi: true});
+            console.log("hi sne");
+          };
             // if (usersCollection.find({user: result[0].user}, {loggedIn: false})) {
             //   usersCollection.update({user: result[0].user}, {$set: {loggedIn: true}});
             //   console.log("request username looks like:", request.body.user);

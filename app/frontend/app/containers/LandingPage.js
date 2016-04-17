@@ -42,7 +42,7 @@ const LandingPage = React.createClass({
       user: this.state.user,
       password: this.state.password,
       playlist: [],
-      loggedIn: false
+      loggedIn: true
     };
     console.log('finding user');
     console.log('the user looks like this', user);
