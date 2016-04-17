@@ -224,8 +224,21 @@ app.post('/songs/new', function(request, response){
 }) // end post new song
 
 app.delete('/songs/:_id' , function(request, response){
-  console.log('request for delete', request.params);
-})
+  var songID = ObjectId(request.params['_id']);
+  console.log('song being deleted', songID);
+
+  MongoClient.connect(mongoUrl, function(error, db){
+    var usersCollection = db.collection('users');
+    var songsCollection = db.collection('songs');
+    if (error) {
+      console.log('error connecting to db:', error);
+    } else {
+      console.log('deleting song from songs collection and user songs array');
+      usersCollection.update({loggedIn:true}, {$pull: {playlist: songID}})
+      songsCollection.remove({_id: songID})
+    } // end else
+  }) // end MongoClient.connect()
+}) // end app.delete
 
 
 
