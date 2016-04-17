@@ -193,7 +193,7 @@ app.post('/songs/new', function(request, response){
           console.log('error adding new song:', error);
         } else {
 
-          console.log('new song added', result);
+          console.log('new song added, here is the id of the song:', result['ops'][0]['_id']);
           response.json(result)
 
           usersCollection.find({loggedIn:true}).toArray(function (error, result){
@@ -222,6 +222,10 @@ app.post('/songs/new', function(request, response){
     } //end else
   }) //end MongoClient connect
 }) // end post new song
+
+app.delete('/songs/:_id' , function(request, response){
+  console.log('request for delete', request.params);
+})
 
 
 
