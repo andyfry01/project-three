@@ -5,7 +5,7 @@
 
 - To begin, the app takes you to a login page where you're prompted to create a user profile or login as an existing user (it's not exactly a "user system" per se, at the moment it's just a way of creating and displaying different playlists for different users depending on who's "logged in").
 
-- The app then takes you to the main page where you can enter a country to search for. When you search for a country, the app queries the last.fm API to find the top 50 most popular tracks in that country for the past week, and then displays them in descending order on the page with the artist, song name, and an image of the artist/band. If you mouseover a song, a query is fired to the Spotify API to play a sample of the song.
+- The app then takes you to the main page where you can enter a country to search for. When you search for a country, the app queries the last.fm API to find the top 50 most popular tracks in that country for the past week, and then displays them in ascending order on the page with the artist, song name, and an image of the artist/band. If you mouseover a song, a query is fired to the Spotify API to play a sample of the song.
 
 - You can click on the save button to save a song to your playlist, and if you navigate to the playlist page, your saved songs will appear. From the playlist page you can choose to remove a song, which will delete it from your playlist.
 
