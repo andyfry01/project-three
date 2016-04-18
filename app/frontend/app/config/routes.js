@@ -12,6 +12,7 @@ const routes = (
     <IndexRoute component={LandingPage} />
     <Route path='SignedInPage' component={SignedInPage} />
     <Route path='PlaylistPage' component={PlaylistPage} />
+    <Route path='LandingPage' component={LandingPage} />
     </Route>
     </Router>
 )

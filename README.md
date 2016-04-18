@@ -18,4 +18,4 @@
 - We shared responsibilities across the entire app, and all of us worked on different aspects of both the frontend and the backend. We all took an active role in planning the app, delegating tasks, and fixing bugs. Major contributions include:
   - Carrie:
   - Andy: Provided much of the backend functionality for adding users to the database, adding songs to the songs database and the user's playlist, and deleting songs from the database, in addition to hooking up the backend to the front. Also worked out a lot of bugs and technical glitches when they occurred.
-  - Tyler:
+  - Tyler: Did some work in the backend to make it so only one user can be signed in at a time, and when someone uses the "one click signup", they become the only one that's loggedIn: true. Also set up routes, adding a new user to our database via axios, got the "view playlist/back to search" button to change according to what page the user was on (with a lot of Andy's help), and some minor bug fixes.
