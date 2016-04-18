@@ -2,24 +2,19 @@ import React from 'react';
 
 const TitleComponent = React.createClass({
   render: function(){
-    let logo = '../images/vybez.png';
+    let logo = 'http://s1.postimg.org/6eh9efe0v/vybez.png';
 
     let logoStyle = {
-      backgroundColor: 'rgba(142, 38, 113, .8)',
       backgroundImage: 'url(' + logo + ')',
-      color: 'rgba(168, 168, 168, 1)',
+      backgroundSize: 'cover',
       borderRadius: '50%',
       width: '120px',
       height: '120px',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      margin: '20px',
     }
 
     return (
       <div className='landingFlex'>
-        <h1 style={logoStyle}>APP</h1>
+        <h1 style={logoStyle}></h1>
       </div>
     );
   }
