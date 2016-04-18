@@ -28,7 +28,9 @@ const HeaderComponent = React.createClass({
           <p>
             vybez
           </p>
-
+          <Link to="LandingPage">
+            <button>Log Out</button>
+          </Link>
           <ButtonComponent
             buttonText={this.props.buttonText}
             link={this.props.link}
