@@ -11,14 +11,14 @@ const SongComponent = React.createClass({
       playUrl: '',
       btnBgColor: 'rgba(142, 38, 113,.9)',
       playingDiv: '',
+      removeSong: false,
+      display: 'block',
     }
   },
 
   playSong: function(){
-    console.log('should play song now');
     ajaxHelpers.playSong(this.props.name)
     .then(function(response){
-      console.log('spotify:', response.data.tracks.items[0].preview_url)
       this.setState({
         playUrl: response.data.tracks.items[0].preview_url,
         playingDiv: '0 0 25px #6E41E1',
@@ -30,7 +30,6 @@ const SongComponent = React.createClass({
     this.setState({
       playUrl: '',
       playingDiv: '',
-      playingDivGlow: '',
     })
   },
 
@@ -39,7 +38,9 @@ const SongComponent = React.createClass({
     if (this.state.btnText === 'Remove'){
       this.setState({
         btnText: 'Removed!',
-        btnBgColor: '#b71998',
+        btnBgColor: '#d620b1',
+        removeSong: true,
+        display: 'none',
       });
       let mongoID = this.props.id;
       this.delSong(mongoID);
@@ -52,7 +53,6 @@ const SongComponent = React.createClass({
       });
       this.addSong();
     }
-
   },
 
   delSong: function(mongoID){
@@ -84,6 +84,9 @@ const SongComponent = React.createClass({
   getSongs: function(){
 
     let mainStyle = {
+      showDiv: {
+        display: this.state.display,
+      },
       formatDiv: {
         backgroundColor: 'rgba(255,255,255,.1)',
         color: 'rgba(255,255,255,.9)',
@@ -133,40 +136,39 @@ const SongComponent = React.createClass({
     };
 
     return (
-      <div
-        style={mainStyle.formatDiv}
-        onMouseEnter={this.playSong}
-        onMouseLeave={this.pauseSong}
-        className='songInfo'>
+      <div style={mainStyle.showDiv}>
+        <div
+          id='divSong'
+          style={mainStyle.formatDiv}
+          onMouseEnter={this.playSong}
+          onMouseLeave={this.pauseSong}
+          className='songInfo'>
 
-        <div style={mainStyle.center}>
-          <span style={mainStyle.artist}>{this.props.artist}</span>
-          <span style={mainStyle.track}> {this.props.name}</span>
-        </div>
-
-        <div style={mainStyle.flex}>
-          <button
-            style={mainStyle.formatBtn}
-            onClick={this.handleClick}
-            className="addSongBtn"
-            > {this.state.btnText}
-          </button>
-
-          <div style={mainStyle.hide}>
-            <ReactAudioPlayer
-              src={this.state.playUrl}
-              autoPlay='true'
-              preload='none'
-            />
+          <div style={mainStyle.center}>
+            <span style={mainStyle.artist}>{this.props.artist}</span>
+            <span style={mainStyle.track}> {this.props.name}</span>
           </div>
 
+          <div style={mainStyle.flex}>
+            <button
+              style={mainStyle.formatBtn}
+              onClick={this.handleClick}
+              className="addSongBtn"
+              > {this.state.btnText}
+            </button>
+
+            <div style={mainStyle.hide}>
+              <ReactAudioPlayer
+                src={this.state.playUrl}
+                autoPlay='true'
+                preload='none'
+              />
+            </div>
+
+          </div>
         </div>
       </div>
     )
-  },
-
-  componentDidMount: function(){
-    console.log("component mounted");
   },
 
   render: function() {
