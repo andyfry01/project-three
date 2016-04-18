@@ -26,7 +26,7 @@ const HeaderComponent = React.createClass({
       <div>
         <div style={headerStyle}>
           <p>
-            App Name
+            vybez
           </p>
 
           <ButtonComponent
