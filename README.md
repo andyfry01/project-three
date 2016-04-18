@@ -1,6 +1,6 @@
 # Project Three
 
-### Introducing, _vybes_. A responsive music app featuring top hits from around the world.
+### Introducing, _vybez_. A responsive music app featuring top hits from around the world.
 
 
 ### App overview:
