@@ -66,6 +66,7 @@
 
 
   ### Future features:
+  - Implement secure login
   - Display 'featured country top hits' upon login so that the search page isn't blank
   - Search other users 'profiles'/playlists
   - Ability to save to multiple playlists
