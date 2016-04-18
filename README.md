@@ -13,7 +13,11 @@
 
 ### Technical details:
 
-(from the project prompt readme: "Provide some technical details about the app")
+- The app uses two APIs: last.fm to find the top 50 songs for a given week in a given country, and Spotify to play a sample snippet from the songs.  
+
+- When you search for a country, an API call is made to last.fm, which grabs the data. We then map over the data and render unique song components to the page based on that song's data.
+
+- In terms of data organization for adding songs to a playlist and displaying a playlist, we've got two MongoDB collections: users and songs. When a new song is added, it's first added as a new document in the songs collection, and then added as a reference in a user's profile under their "playlists" array. When you navigate to the playlist page, the app first reads which songs are in a user's playlist, and then fetches the songs from the songs collection to display on the page. When deleting a song, both the reference and the song are deleted from the database.
 
 ### Group responsibilities and contributions:
 
