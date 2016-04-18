@@ -58,9 +58,9 @@
   ### Known bugs:
 
 
-  - Sign-in button 'logs in' on click, even when that user is not a part of the database. If user doesn't exist in the database (or if fields are left blank), need to display an alert.
-  - If country is not found, red error screen displays.
-  - When there are multiple songs of the same title, the wrong song most likely will play.Need to find tune api call.
+  - Sign-in button 'logs in' on click, even when that user is not a part of the database. If user doesn't exist in the database (or if fields are left blank), need to display an alert
+  - If country is not found, red error screen displays
+  - When there are multiple songs of the same title, the wrong song most likely will play. Need to fine tune api call
   - Red error screen flashes when View Playlist button is clicked--seems like the call to render the songs in the user's playlist array isn't rendering for a split second which is why this error was consoled: index.js:47 Uncaught TypeError: Cannot read property 'map' of undefined
 
 
@@ -71,6 +71,6 @@
   - Search other users 'profiles'/playlists
   - Ability to save to multiple playlists
   - Display username on the Header (ex: Welcome Tyler)
-  - When switching routes to playlist page, the results page should keep the data that is displayed so that users don't have to search for a country again when they click 'return to search'.
+  - When switching routes to playlist page, the results page should keep the data that is displayed so that users don't have to search for a country again when they click 'return to search'
   - Hit enter to Search
   - Autofill countries while typing in input box
