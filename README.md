@@ -23,7 +23,7 @@
 
 - We shared responsibilities across the entire app, and all of us worked on different aspects of both the frontend and the backend. We all took an active role in planning the app, delegating tasks, and fixing bugs. Major contributions include:
 
-- Carrie: Contributed heavily on the front end side, including all the style. Front end features worked on include:
+- Carrie: Contributed mostly on the front end side, including all the style. Front end features worked on include:
     - Dynamically updating the text/style of the buttons displayed in the actual song components based on the page the user is on, and the action that is taken on the button
     - Displaying songs according to the country searched
     - Displaying songs on the Playlist page
@@ -33,7 +33,8 @@
     - Making the ajax call to lastFM to find top 50 hits for each country
     - Making the ajax call to Spotify to return the song snippet urls
     - Building the route for finding the current user's playlist which returns the order of the songs in descending order (last song added is displayed first)<br><br>
-**I just want to add, our group had an amazing dynamic and was super organized. Working with Andy and Tyler not only helped me better understand React, and Node especially, it made me a better developer. Also, branching/merging/etc was not an issue at all. Team Dusty Sticks for the win!**
+**I just want to add, our group had an amazing dynamic and was super organized. Working with Andy and Tyler not only helped me better understand React, and Node especially, it made me a better developer. Also, branching/merging/etc was not an issue at all. Team Dusty Sticks for the win!**<br>
+
 
 
   - Andy: Provided much of the backend functionality for adding users to the database, adding songs to the songs database and the user's playlist, and deleting songs from the database, in addition to hooking up the backend to the front. Also worked out a lot of bugs and technical glitches when they occurred.
