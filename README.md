@@ -13,6 +13,14 @@
 
 ### Technical details:
 
+- Technologies used:
+  - ES6
+  - React.js
+  - Node.js
+  - MongoDB
+  - AJAX
+
+
 - The app uses two APIs: last.fm to find the top 50 songs for a given week in a given country, and Spotify to play a sample snippet from the songs.  
 
 - When you search for a country, an API call is made to last.fm, which grabs the data. We then map over the data and render unique song components to the page based on that song's data.
