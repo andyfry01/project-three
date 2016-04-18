@@ -5,15 +5,10 @@ const ButtonComponent = React.createClass({
 
   render: function() {
 
-    let pStyle = {
-      fontSize: '15px',
-      color: '#fff',
-    };
-
     return (
       <div>
         <Link to={this.props.link}>
-        <p style={pStyle}>{this.props.buttonText}</p>
+        <button style={this.props.style}>{this.props.buttonText}</button>
         </Link>
       </div>
     );
