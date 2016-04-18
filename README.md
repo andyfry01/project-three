@@ -18,7 +18,7 @@
   - React.js
   - Node.js
   - MongoDB
-  - AJAX
+  - Axios
 
 
 - The app uses two APIs: last.fm to find the top 50 songs for a given week in a given country, and Spotify to play a sample snippet from the songs.  
