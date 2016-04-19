@@ -35,11 +35,11 @@
 
 - We shared responsibilities across the entire app, and all of us worked on different aspects of both the frontend and the backend. We all took an active role in planning the app, delegating tasks, and fixing bugs. Major contributions include:
 
-  - Andy: Provided much of thebackendfunctionality for adding users to thedatabase,adding songs to the songs database andtheuser's playlist, and deleting songs fromthedatabase, in addition to hooking up thebackendto the front. Also worked out a lot ofbugs andtechnical glitches when they occurred.
+  - Andy: Provided much of the backend functionality for adding users to the database,adding songs to the songs database and the user's playlist, and deleting songs from the database, in addition to hooking up the backend to the front. Also worked out a lot of bugs and technical glitches when they occurred.
 
   - Tyler: Did some work in the backend to make it so only one user can be signed in at a time, and when someone uses the "one click signup", they become the only one that's loggedIn: true. Also set up routes, adding a new user to our database via axios, got the "view playlist/back to search" button to change according to what page the user was on (with a lot of Andy's help), and some minor bug fixes. Also, came up with the sweet name.
 
-  - Carrie: Contributed mostly on the front endside, including all the style. Front endfeatures worked on include:
+  - Carrie: Contributed mostly on the front end side, including all the style. Front end features worked on include:
       - Dynamically updating the text/style of the buttons displayed in the actual song components based on the page the user is on, and the action that is taken on the button
       - Displaying songs according to the country searched
       - Displaying songs on the Playlist page
@@ -49,7 +49,7 @@
       - Making the ajax call to lastFM to find top 50 hits for each country
       - Making the ajax call to Spotify to return the song snippet urls
       - Building the route for finding the current user's playlist which returns the order of the songs in descending order (last song added is displayed first)<br><br>
-  **I just want to add, our group had an amazing dynamic and was super organized. Working with Andy and Tyler not only helped me better understand React, and Node especially, it made me a better developer. Also, branching/merging/etc was not an issue at all. Team Dusty Sticks for the win!**<br>
+  **I just want to add, our group had an amazing dynamic and was super organized. Working with Andy and Tyler not only helped me better understand React, and Node/Express especially, it made me a better developer. Also, branching/merging/etc was not an issue at all. Team Dusty Sticks for the win!**<br>
 
 
 
