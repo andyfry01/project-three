@@ -4,7 +4,8 @@
   "description": "simple express router setup",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon"
+    "start-dev": "nodemon",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",

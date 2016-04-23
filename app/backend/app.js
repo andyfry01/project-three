@@ -250,6 +250,6 @@ app.delete('/songs/:_id' , function(request, response){
 
 
 
-app.listen(3000, function() {
-  console.log("listening on port 3000");
+app.server.listen(process.env.PORT || 3000, function() {
+  console.log("backend now listening");
 })
