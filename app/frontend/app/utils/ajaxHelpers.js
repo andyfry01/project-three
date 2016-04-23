@@ -4,34 +4,34 @@ const helpers = {
 
   //finding user by name
   findUser: function(user){
-    return axios.post('http://localhost:3000/users/find', user);
+    return axios.post('https://blooming-mesa-61602.herokuapp.com/users/find', user);
   },
 
   //adding user
   addUser: function(user){
-    return axios.post('http://localhost:3000/users/new', user);
+    return axios.post('https://blooming-mesa-61602.herokuapp.com/users/new', user);
   },
 
   //find loggedIn user
   findLoggedInUser: function(){
-    return axios.get('http://localhost:3000/loggedin');
+    return axios.get('https://blooming-mesa-61602.herokuapp.com/loggedin');
   },
 
   //find current user's playlist
   findCurrentPlaylist: function(){
-    return axios.get('http://localhost:3000/playlist');
+    return axios.get('https://blooming-mesa-61602.herokuapp.com/playlist');
   },
 
   //add song to user playlist
   addSongToPlaylist: function(song){
-      return axios.post('http://localhost:3000/songs/new', song);
+      return axios.post('https://blooming-mesa-61602.herokuapp.com/songs/new', song);
   },
 
   //delete song from user playlist
   deleteSong: function(mongoID) {
     console.log("mongo ID:", mongoID);
     console.log("delete song triggered the ajax helper");
-    return axios.delete('http://localhost:3000/songs/' + mongoID)
+    return axios.delete('https://blooming-mesa-61602.herokuapp.com/songs/' + mongoID)
   },
 
   //request to lastFM
