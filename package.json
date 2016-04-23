@@ -2,10 +2,10 @@
   "name": "music-backend",
   "version": "1.0.0",
   "description": "simple express router setup",
-  "main": "app.js",
+  "main": "./app/backend/app.js",
   "scripts": {
     "start-dev": "nodemon",
-    "start": "node app.js"
+    "start": "node ./app/backend/app.js"
   },
   "author": "",
   "license": "ISC",
