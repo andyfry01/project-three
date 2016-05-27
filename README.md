@@ -1,7 +1,7 @@
 # Project Three
 
 ### Introducing, _vybez_. A responsive music app featuring top hits from around the world.
-
+Click <a href="https://vybez.herokuapp.com"> HERE </a> for a demo.
 
 ### App overview:
 
